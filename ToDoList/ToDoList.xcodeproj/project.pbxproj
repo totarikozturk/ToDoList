@@ -60,6 +60,7 @@
 		D0445643284919B500A9DB93 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				D0445652284919B600A9DB93 /* Info.plist */,
 				D0E80869284A807300E16E17 /* App */,
 				D0E8086D284A816A00E16E17 /* Controller */,
 				D0E8086E284A819900E16E17 /* Model */,
@@ -108,7 +109,6 @@
 		D0E8086F284A821200E16E17 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D0445652284919B600A9DB93 /* Info.plist */,
 			);
 			path = View;
 			sourceTree = "<group>";
