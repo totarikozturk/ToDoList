@@ -60,16 +60,57 @@
 		D0445643284919B500A9DB93 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				D0E80869284A807300E16E17 /* App */,
+				D0E8086D284A816A00E16E17 /* Controller */,
+				D0E8086E284A819900E16E17 /* Model */,
+				D0E8086C284A815900E16E17 /* Resources */,
+				D0E8086F284A821200E16E17 /* View */,
+			);
+			path = ToDoList;
+			sourceTree = "<group>";
+		};
+		D0E80869284A807300E16E17 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				D0445644284919B500A9DB93 /* AppDelegate.swift */,
 				D0445646284919B500A9DB93 /* SceneDelegate.swift */,
 				D0445648284919B500A9DB93 /* ViewController.swift */,
-				D0E80867284A801000E16E17 /* ToDoListViewController.swift */,
 				D044564A284919B500A9DB93 /* Main.storyboard */,
-				D044564D284919B600A9DB93 /* Assets.xcassets */,
 				D044564F284919B600A9DB93 /* LaunchScreen.storyboard */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D0E8086C284A815900E16E17 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D044564D284919B600A9DB93 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D0E8086D284A816A00E16E17 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D0E80867284A801000E16E17 /* ToDoListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D0E8086E284A819900E16E17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			path = "Modelü";
+			sourceTree = "<group>";
+		};
+		D0E8086F284A821200E16E17 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				D0445652284919B600A9DB93 /* Info.plist */,
 			);
-			path = ToDoList;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -31,7 +31,7 @@ class ToDoListViewController : UIViewController {
     }
     
     private func drawDesign() {
-        self.view.backgroundColor = .blue
+        self.view.backgroundColor = .white
         tableView.backgroundColor = .red
         titleLabel.text = "ToDoList"
     }
