@@ -32,7 +32,7 @@ class ToDoListViewController : UIViewController {
     
     private func drawDesign() {
         self.view.backgroundColor = .white
-        tableView.backgroundColor = .red
+        tableView.backgroundColor = .purple
         titleLabel.text = "ToDoList"
     }
     
@@ -54,6 +54,11 @@ class ToDoListViewController : UIViewController {
     }
     
     private func makeToDoCreateButton() {
+        toDoCreateButton.setTitle("+", for: .normal)
+        toDoCreateButton.setTitleColor(UIColor.purple, for: .normal)
+        toDoCreateButton.layer.borderWidth = 2
+        toDoCreateButton.layer.cornerRadius = 5
+        toDoCreateButton.layer.masksToBounds = true
         toDoCreateButton.snp.makeConstraints { make in
             make.height.equalTo(titleLabel)
             make.right.equalTo(titleLabel).offset(-5)
