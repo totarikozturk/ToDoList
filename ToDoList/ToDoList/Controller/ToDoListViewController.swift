@@ -4,26 +4,25 @@
 //
 //  Created by TarıkOzturk on 3.06.2022.
 //
- import UIKit
- import SnapKit
+import UIKit
+import SnapKit
 
 class ToDoListViewController : UIViewController {
     
     private let titleLabel = UILabel()
-    private let tableView = UIView()
+    private let tableView = UITableView()
     private let toDoCreateButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       configure()
-        }
+        configureView()
+    }
     
-   private func configure() {
+    private func configureView() {
         view.addSubview(titleLabel)
         view.addSubview(tableView)
         view.addSubview(toDoCreateButton)
         view.backgroundColor = .white
-       
         drawDesign()
         makeTitleLabel()
         makeTableView()
@@ -37,6 +36,8 @@ class ToDoListViewController : UIViewController {
     }
     
     private func makeTitleLabel() {
+        titleLabel.textColor = .purple
+        titleLabel.font = .boldSystemFont(ofSize: 24)
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
             make.left.equalTo(view).offset(10)
@@ -48,7 +49,7 @@ class ToDoListViewController : UIViewController {
     private func makeTableView() {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
-            make.bottom.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(10)
             make.left.right.equalTo(titleLabel)
         }
     }
@@ -56,8 +57,10 @@ class ToDoListViewController : UIViewController {
     private func makeToDoCreateButton() {
         toDoCreateButton.setTitle("+", for: .normal)
         toDoCreateButton.setTitleColor(UIColor.purple, for: .normal)
-        toDoCreateButton.layer.borderWidth = 2
-        toDoCreateButton.layer.cornerRadius = 5
+        toDoCreateButton.titleLabel?.font = .boldSystemFont(ofSize: 24)
+        toDoCreateButton.layer.borderWidth = 1
+        toDoCreateButton.layer.cornerRadius = 8
+        
         toDoCreateButton.layer.masksToBounds = true
         toDoCreateButton.snp.makeConstraints { make in
             make.height.equalTo(titleLabel)
