@@ -15,6 +15,8 @@
 		D0445651284919B600A9DB93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D044564F284919B600A9DB93 /* LaunchScreen.storyboard */; };
 		D0B1895828492AEF0023E186 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D0B1895728492AEF0023E186 /* SnapKit */; settings = {ATTRIBUTES = (Required, ); }; };
 		D0E80868284A801000E16E17 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E80867284A801000E16E17 /* ToDoListViewController.swift */; };
+		D0E80871284BCE7300E16E17 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E80870284BCE7300E16E17 /* TodoCell.swift */; };
+		D0E80875284BD74E00E16E17 /* ToDoListItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E80874284BD74E00E16E17 /* ToDoListItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		D0445650284919B600A9DB93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0445652284919B600A9DB93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0E80867284A801000E16E17 /* ToDoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
+		D0E80870284BCE7300E16E17 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
+		D0E80874284BD74E00E16E17 /* ToDoListItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 		D0E8086E284A819900E16E17 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D0E80870284BCE7300E16E17 /* TodoCell.swift */,
+				D0E80874284BD74E00E16E17 /* ToDoListItems.swift */,
 			);
 			name = Model;
 			path = "Modelü";
@@ -190,9 +196,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0E80875284BD74E00E16E17 /* ToDoListItems.swift in Sources */,
 				D0E80868284A801000E16E17 /* ToDoListViewController.swift in Sources */,
 				D0445649284919B500A9DB93 /* ViewController.swift in Sources */,
 				D0445645284919B500A9DB93 /* AppDelegate.swift in Sources */,
+				D0E80871284BCE7300E16E17 /* TodoCell.swift in Sources */,
 				D0445647284919B500A9DB93 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
