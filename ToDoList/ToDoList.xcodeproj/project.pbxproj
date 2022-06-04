@@ -19,6 +19,7 @@
 		D0E80875284BD74E00E16E17 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E80874284BD74E00E16E17 /* Structs.swift */; };
 		D0E80877284C021600E16E17 /* CreateToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E80876284C021500E16E17 /* CreateToDoViewController.swift */; };
 		D0E80879284C087B00E16E17 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E80878284C087B00E16E17 /* Extensions.swift */; };
+		D0E8087B284C0C2800E16E17 /* DetailToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E8087A284C0C2800E16E17 /* DetailToDoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		D0E80874284BD74E00E16E17 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		D0E80876284C021500E16E17 /* CreateToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToDoViewController.swift; sourceTree = "<group>"; };
 		D0E80878284C087B00E16E17 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D0E8087A284C0C2800E16E17 /* DetailToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailToDoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				D0E80867284A801000E16E17 /* ToDoListViewController.swift */,
 				D0E80876284C021500E16E17 /* CreateToDoViewController.swift */,
+				D0E8087A284C0C2800E16E17 /* DetailToDoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0E80875284BD74E00E16E17 /* Structs.swift in Sources */,
+				D0E8087B284C0C2800E16E17 /* DetailToDoViewController.swift in Sources */,
 				D0E80868284A801000E16E17 /* ToDoListViewController.swift in Sources */,
 				D0445649284919B500A9DB93 /* ViewController.swift in Sources */,
 				D0E80879284C087B00E16E17 /* Extensions.swift in Sources */,

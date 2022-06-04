@@ -19,6 +19,11 @@ extension ToDoListViewController: UITableViewDelegate,UITableViewDataSource {
         cell.set(toDoList: ToDo)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailToDoVC = DetailToDoViewController()
+        present(detailToDoVC, animated: true, completion: nil)
+    }
 }
 
 extension ToDoListViewController {

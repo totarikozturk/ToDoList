@@ -6,7 +6,7 @@
 import UIKit
 import SnapKit
 
-class CreateToDoViewController : UIViewController {
+class  DetailToDoViewController: UIViewController {
     
     private let cancelButton = UIButton()
     private let doneButton = UIButton()
@@ -19,7 +19,7 @@ class CreateToDoViewController : UIViewController {
     private func configureView() {
         view.addSubview(cancelButton)
         view.addSubview(doneButton)
-        view.backgroundColor = .white
+        view.backgroundColor = .systemTeal
         makeCancelButton()
         makeDoneButton()
         cancelButton.addTarget(self, action: #selector(backTodoList), for: .touchUpInside)
