@@ -14,10 +14,6 @@ class ToDoListViewController : UIViewController {
     private let toDoCreateButton = UIButton()
     var toDoLists: [ToDoListItems] = []
     
-    struct Cells {
-        static let TodoCell = "ToDoCell"
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         toDoLists = fetchData()
@@ -33,6 +29,13 @@ class ToDoListViewController : UIViewController {
         makeTitleLabel()
         makeTableView()
         makeToDoCreateButton()
+        toDoCreateButton.addTarget(self, action: #selector(openCreateTodoView), for: .touchUpInside)
+    }
+    
+    
+    @objc func openCreateTodoView() {
+        let createToDoVC = CreateToDoViewController()
+        present(createToDoVC, animated: true, completion: nil)
     }
     
     private func drawDesign() {
@@ -72,7 +75,6 @@ class ToDoListViewController : UIViewController {
         toDoCreateButton.layer.borderWidth = 1
         toDoCreateButton.layer.cornerRadius = 12
         toDoCreateButton.clipsToBounds = true
-        
         toDoCreateButton.layer.masksToBounds = true
         toDoCreateButton.snp.makeConstraints { make in
             make.height.equalTo(titleLabel)
@@ -82,28 +84,3 @@ class ToDoListViewController : UIViewController {
     }
 }
 
-extension ToDoListViewController: UITableViewDelegate,UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return toDoLists.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.TodoCell) as! ToDoCell
-        let ToDo = toDoLists[indexPath.row]
-        cell.set(toDoList: ToDo)
-        return cell
-    }
-}
-
-extension ToDoListViewController {
-    
-    func fetchData() -> [ToDoListItems] {
-        let Todo1 = ToDoListItems(Title: "Tarık Öztürk", Date: "4june2022")
-        let Todo2 = ToDoListItems(Title: "Bu işi yapıyor", Date: "4june2022")
-        let Todo3 = ToDoListItems(Title: "Game", Date: "4june2022")
-        let Todo4 = ToDoListItems(Title: "Game", Date: "4june2022")
-        return [Todo1,Todo2,Todo3,Todo4]
-    }
-    
-}
