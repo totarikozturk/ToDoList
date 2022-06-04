@@ -22,7 +22,6 @@ class ToDoListViewController : UIViewController {
         super.viewDidLoad()
         toDoLists = fetchData()
         configureView()
-        
     }
     
     private func configureView() {
@@ -81,7 +80,6 @@ class ToDoListViewController : UIViewController {
             make.top.equalTo(titleLabel)
         }
     }
-    
 }
 
 extension ToDoListViewController: UITableViewDelegate,UITableViewDataSource {
@@ -96,8 +94,6 @@ extension ToDoListViewController: UITableViewDelegate,UITableViewDataSource {
         cell.set(toDoList: ToDo)
         return cell
     }
-    
-    
 }
 
 extension ToDoListViewController {
@@ -109,4 +105,5 @@ extension ToDoListViewController {
         let Todo4 = ToDoListItems(Title: "Game", Date: "4june2022")
         return [Todo1,Todo2,Todo3,Todo4]
     }
+    
 }

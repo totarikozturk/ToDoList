@@ -47,25 +47,14 @@ class ToDoCell: UITableViewCell {
     }
     
     func setToDoTitleLabelConstrainsts() {
-      /*  toDoTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        toDoTimeLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        toDoTimeLabel.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 12).isActive = true
-        toDoTimeLabel.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        toDoTimeLabel.trailingAnchor.constraint(equalTo: trailingAnchor,constant: 12).isActive = true
-       */
         toDoTitleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(5)        }
+            make.trailing.equalToSuperview().offset(5)
+        }
     }
     
     func setToDoTimeLabelConstrainsts() {
-      /*  toDoTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        toDoTimeLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        toDoTimeLabel.leadingAnchor.constraint(equalTo: toDoTitleLabel.leadingAnchor).isActive = true
-        toDoTimeLabel.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        toDoTimeLabel.trailingAnchor.constraint(equalTo: trailingAnchor,constant: 12).isActive = true
-       */
         toDoTimeLabel.snp.makeConstraints { make in
             make.top.equalTo(toDoTitleLabel).offset(30)
             make.leading.equalTo(toDoTitleLabel).offset(20)
