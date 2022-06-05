@@ -13,6 +13,9 @@ class ToDoListViewController : UIViewController {
     private let tableView = UITableView()
     private let toDoCreateButton = UIButton()
     var toDoLists: [ToDoListItems] = []
+    var createToDoVC = CreateToDoViewController()
+    var dateAndTimeVC = DateAndTimeViewController()
+    var Results : [ToDoListItems] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +33,9 @@ class ToDoListViewController : UIViewController {
         makeTableView()
         makeToDoCreateButton()
         toDoCreateButton.addTarget(self, action: #selector(openCreateTodoView), for: .touchUpInside)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     

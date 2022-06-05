@@ -28,8 +28,12 @@ extension ToDoListViewController: UITableViewDelegate,UITableViewDataSource {
 
 extension ToDoListViewController {
     
+    
+    
     func fetchData() -> [ToDoListItems] {
-        let Todo1 = ToDoListItems(Title: "Tarık Öztürk", Date: "4june2022")
+        let Todo1 : ToDoListItems = ToDoListItems(Title: createToDoVC.toDoTextResult, Date: dateAndTimeVC.toDoDateAndTimeResult)
+        Results.append(ToDoListItems(Title: createToDoVC.toDoTextResult, Date: dateAndTimeVC.toDoDateAndTimeResult))
+        print("\(Results)")
         let Todo2 = ToDoListItems(Title: "Bu işi yapıyor", Date: "4june2022")
         let Todo3 = ToDoListItems(Title: "Game", Date: "4june2022")
         let Todo4 = ToDoListItems(Title: "Game", Date: "4june2022")

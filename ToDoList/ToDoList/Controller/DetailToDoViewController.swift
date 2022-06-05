@@ -32,12 +32,9 @@ class  DetailToDoViewController: UIViewController {
     private func makeCancelButton() {
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.setTitleColor(UIColor.systemBlue, for: .normal)
-        cancelButton.titleLabel?.font = .boldSystemFont(ofSize: 24)
-        cancelButton.layer.borderWidth = 1
-        cancelButton.layer.cornerRadius = 5
-        cancelButton.clipsToBounds = true
+        cancelButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
         cancelButton.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 100, height: 50))
+            make.size.equalTo(CGSize(width: 60, height: 30))
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
             make.left.equalTo(view).offset(10)
             make.height.greaterThanOrEqualTo(10)
@@ -47,13 +44,9 @@ class  DetailToDoViewController: UIViewController {
     private func makeDoneButton() {
         doneButton.setTitle("Done", for: .normal)
         doneButton.setTitleColor(UIColor.purple, for: .normal)
-        doneButton.titleLabel?.font = .boldSystemFont(ofSize: 24)
-        doneButton.layer.borderWidth = 1
-        doneButton.layer.cornerRadius = 5
-        doneButton.clipsToBounds = true
-        doneButton.layer.masksToBounds = true
+        doneButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
         doneButton.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 75, height: 50))
+            make.size.equalTo(CGSize(width: 40, height: 30))
             make.height.equalTo(cancelButton)
             //make.left.equalTo(cancelButton.snp_rightMargin).offset(5)
             make.right.equalTo(view).offset(-5)
