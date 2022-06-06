@@ -48,7 +48,6 @@ class  DetailToDoViewController: UIViewController {
         doneButton.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 40, height: 30))
             make.height.equalTo(cancelButton)
-            //make.left.equalTo(cancelButton.snp_rightMargin).offset(5)
             make.right.equalTo(view).offset(-5)
             make.top.equalTo(cancelButton)
         }

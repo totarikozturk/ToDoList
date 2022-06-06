@@ -7,20 +7,36 @@
 import UIKit
 import SnapKit
 
+var toDoLists: [ToDoListItems] = []
+var createToDoVC = CreateToDoViewController()
+var dateAndTimeVC = DateAndTimeViewController()
+var toDoListVC = ToDoListViewController()
+var detailToDoVC = DetailToDoViewController()
+
 class ToDoListViewController : UIViewController {
     
     private let titleLabel = UILabel()
     private let tableView = UITableView()
     private let toDoCreateButton = UIButton()
-    var toDoLists: [ToDoListItems] = []
-    var createToDoVC = CreateToDoViewController()
-    var dateAndTimeVC = DateAndTimeViewController()
-    var Results : [ToDoListItems] = []
+    var toDoCell1 = ToDoCell()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        toDoLists = fetchData()
+        updateTableViewData()
         configureView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
+    
+    func updateTableViewData() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.tableView.beginUpdates()
+            self.tableView.endUpdates()
+        }
     }
     
     private func configureView() {
@@ -36,11 +52,12 @@ class ToDoListViewController : UIViewController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+        view.addSubview(self.tableView)
     }
-    
     
     @objc func openCreateTodoView() {
         let createToDoVC = CreateToDoViewController()
+        createToDoVC.modalPresentationStyle = .fullScreen
         present(createToDoVC, animated: true, completion: nil)
     }
     
@@ -54,9 +71,8 @@ class ToDoListViewController : UIViewController {
         titleLabel.textColor = .purple
         titleLabel.font = .boldSystemFont(ofSize: 24)
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(30)
             make.left.equalTo(view).offset(10)
-            make.right.equalTo(view).offset(-10)
             make.height.greaterThanOrEqualTo(10)
         }
     }
@@ -70,7 +86,9 @@ class ToDoListViewController : UIViewController {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(10)
-            make.left.right.equalTo(titleLabel)
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
+            make.right.equalTo(view.safeAreaLayoutGuide).offset(-10)
+            
         }
     }
     
@@ -84,7 +102,7 @@ class ToDoListViewController : UIViewController {
         toDoCreateButton.layer.masksToBounds = true
         toDoCreateButton.snp.makeConstraints { make in
             make.height.equalTo(titleLabel)
-            make.right.equalTo(titleLabel).offset(-5)
+            make.right.equalTo(view.safeAreaLayoutGuide).offset(-5)
             make.top.equalTo(titleLabel)
         }
     }

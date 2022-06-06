@@ -67,14 +67,15 @@ class DateAndTimeViewController : UIViewController, FSCalendarDelegate {
     
     private func makeCalendar() {
         calendar.delegate = self
-        calendar.frame = CGRect(x: 0, y: 31 , width: view.frame.size.width, height: view.frame.size.width)
+        calendar.frame = CGRect(x: 0, y: 50 , width: view.frame.size.width, height: view.frame.size.width)
     }
     
     private func makeTimePicker() {
-        timePicker.datePickerMode = .dateAndTime
+        timePicker.datePickerMode = .time
         timePicker.frame = .init(x: 20, y: 100, width: timePicker.bounds.size.width, height: timePicker.bounds.size.height)
         timePicker.snp.makeConstraints { make in
             make.top.equalTo(calendar.snp_bottomMargin).offset(20)
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(100)
             make.height.equalTo(50)
         }
     }
@@ -83,11 +84,10 @@ class DateAndTimeViewController : UIViewController, FSCalendarDelegate {
         let formatter = DateFormatter()
         formatter.dateFormat = "EEEE MM-dd-YYYY"
         let string = formatter.string(from: date)
-// MARK: todoDateAndTimeResults
+        // MARK: todoDateAndTimeResults
         toDoDateAndTimeResult = string
         print(string)
     }
-    
 }
 
 

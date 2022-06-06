@@ -16,6 +16,7 @@ class CreateToDoViewController : UIViewController {
     private let setDateAndTimeButton = UISwitch()
     var timePicker = UIDatePicker()
     var toDoTextResult: String = ""
+    var toDoCell = ToDoCell()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,15 +45,21 @@ class CreateToDoViewController : UIViewController {
     }
     
     @objc func backTodoList() {
+        toDoListVC.updateTableViewData()
         dismiss(animated: true)
     }
     // MARK: todotextviewresult
-    @objc func createFinish() {
-        
-        
-        toDoTextResult = textView.text
-        
-        print(toDoTextResult)
+    @objc func createFinish(_ sender: Any) {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .medium
+        let dateTimeString = formatter.string(from: timePicker.date)
+        dateAndTimeVC.toDoDateAndTimeResult = dateTimeString
+        createToDoVC.toDoTextResult = textView.text
+        toDoLists.append(ToDoListItems(Title: createToDoVC.toDoTextResult, Date: dateAndTimeVC.toDoDateAndTimeResult))
+        toDoCell.set(toDoList: ToDoListItems(Title: createToDoVC.toDoTextResult, Date: dateAndTimeVC.toDoDateAndTimeResult))
+        print(toDoLists)
+        toDoListVC.updateTableViewData()
         dismiss(animated: true)
     }
     
@@ -76,11 +83,11 @@ class CreateToDoViewController : UIViewController {
         doneButton.layer.borderWidth = 1
         doneButton.layer.cornerRadius = 16
         doneButton.clipsToBounds = true
-            doneButton.snp.makeConstraints { make in
-                make.height.equalTo(cancelButton)
-                make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
-                make.right.equalTo(view.safeAreaLayoutGuide).offset(-10)
-                make.top.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-50)
+        doneButton.snp.makeConstraints { make in
+            make.height.equalTo(cancelButton)
+            make.left.equalTo(view).offset(10)
+            make.right.equalTo(view).offset(-10)
+            make.top.equalTo(view.snp.bottom).offset(-50)
         }
     }
     
@@ -90,9 +97,8 @@ class CreateToDoViewController : UIViewController {
         reminderLabel.font = .boldSystemFont(ofSize: 35)
         reminderLabel.snp.makeConstraints { make in
             make.top.equalTo(cancelButton.snp.bottom).offset(25)
-            make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
-            make.right.equalTo(view.safeAreaLayoutGuide).offset(-10)
-            make.width.equalTo(250)
+            make.left.equalTo(view).offset(10)
+            make.right.equalTo(view).offset(-10)
             make.height.equalTo(40)
         }
     }
@@ -100,9 +106,8 @@ class CreateToDoViewController : UIViewController {
     private func makeTextView() {
         textView.snp.makeConstraints { make in
             make.top.equalTo(reminderLabel.snp.bottom).offset(30)
-            make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
-            make.right.equalTo(view.safeAreaLayoutGuide).offset(-10)
-            make.width.equalTo(250)
+            make.left.equalTo(view).offset(10)
+            make.right.equalTo(view).offset(-10)
             make.height.equalTo(40)
         }
     }
@@ -138,13 +143,13 @@ class CreateToDoViewController : UIViewController {
             print("UISwitch state is now ON")
             setDateAndTimeButton.setOn(true, animated: false)
             let dateAndTimeVC = DateAndTimeViewController()
+            dateAndTimeVC.modalPresentationStyle = .fullScreen
             present(dateAndTimeVC, animated: true, completion: nil)
         }
         else{
             print("UISwitch state is now Off")
         }
     }
-    
 }
 
 
