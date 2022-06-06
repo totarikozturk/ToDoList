@@ -77,7 +77,7 @@
 				D0445652284919B600A9DB93 /* Info.plist */,
 				D0E80869284A807300E16E17 /* App */,
 				D0E8086D284A816A00E16E17 /* Controller */,
-				D0E8086E284A819900E16E17 /* Model */,
+				D0E8086E284A819900E16E17 /* Modal */,
 				D0E8086C284A815900E16E17 /* Resources */,
 				D0E8086F284A821200E16E17 /* View */,
 			);
@@ -115,14 +115,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		D0E8086E284A819900E16E17 /* Model */ = {
+		D0E8086E284A819900E16E17 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
 				D0E80870284BCE7300E16E17 /* TodoCell.swift */,
 				D0E80874284BD74E00E16E17 /* Structs.swift */,
 				D0E80878284C087B00E16E17 /* Extensions.swift */,
 			);
-			name = Model;
+			name = Modal;
 			path = "Modelü";
 			sourceTree = "<group>";
 		};
