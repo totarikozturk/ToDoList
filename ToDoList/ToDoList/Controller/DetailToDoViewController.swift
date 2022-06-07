@@ -11,7 +11,10 @@ class  DetailToDoViewController: UIViewController {
     private let cancelButton = UIButton()
     private let doneButton = UIButton()
     private let notesLabel = UILabel()
+    var detailNotesLabel = UITextField()
     private let dateAndTimelabel = UILabel()
+    var detailDateAndTimeLabel = UITextField()
+    var toDoCell = ToDoCell()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,16 +25,31 @@ class  DetailToDoViewController: UIViewController {
         view.addSubview(cancelButton)
         view.addSubview(doneButton)
         view.addSubview(notesLabel)
+        view.addSubview(detailNotesLabel)
         view.addSubview(dateAndTimelabel)
-        view.backgroundColor = .systemTeal
+        view.addSubview(detailDateAndTimeLabel)
+        view.backgroundColor = .white
+        detailNotesLabel.backgroundColor = .darkGray
+        detailDateAndTimeLabel.backgroundColor = .darkGray
         makeCancelButton()
         makeDoneButton()
         makeNotesLabel()
+        makeDetailNotesLabel()
         makeDateAndTimeLabel()
+        makeDetailDateAndTimeLabel()
         cancelButton.addTarget(self, action: #selector(backTodoList), for: .touchUpInside)
+        doneButton.addTarget(self, action: #selector(createFinish), for: .touchUpInside)
     }
     
     @objc func backTodoList() {
+        dismiss(animated: true)
+    }
+    
+    @objc func createFinish(_ sender: Any) {
+        guard let newDetailNotesLabel = detailNotesLabel.text else { return }
+        guard let newDetailDateAndTimeLabel = detailDateAndTimeLabel.text else { return }
+        toDoCell.set(toDoList: ToDoListItems(Title: newDetailNotesLabel, Date: newDetailDateAndTimeLabel))
+        toDoListVC.updateTableViewData()
         dismiss(animated: true)
     }
     
@@ -57,13 +75,33 @@ class  DetailToDoViewController: UIViewController {
         }
     }
     
+    private func makeDetailNotesLabel() {
+        
+        detailNotesLabel.snp.makeConstraints { make in
+            make.top.equalTo(notesLabel.snp_bottomMargin).offset(20)
+            make.left.equalTo(view).offset(10)
+            make.right.equalTo(view).offset(-10)
+            make.height.equalTo(60)
+        }
+    }
+    
     private func makeDateAndTimeLabel() {
         dateAndTimelabel.text = "Date & Time "
         dateAndTimelabel.textColor = .purple
         dateAndTimelabel.font = .boldSystemFont(ofSize: 24)
         dateAndTimelabel.snp.makeConstraints { make in
-            make.top.equalTo(notesLabel.snp_bottomMargin).offset(40)
+            make.top.equalTo(detailNotesLabel.snp_bottomMargin).offset(20)
             make.left.equalTo(view).offset(10)
+        }
+    }
+    
+    private func makeDetailDateAndTimeLabel() {
+        
+        detailDateAndTimeLabel.snp.makeConstraints { make in
+            make.top.equalTo(dateAndTimelabel.snp_bottomMargin).offset(20)
+            make.left.equalTo(view).offset(10)
+            make.right.equalTo(view).offset(-10)
+            make.height.equalTo(60)
         }
     }
     

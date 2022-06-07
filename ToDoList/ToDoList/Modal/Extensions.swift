@@ -23,6 +23,8 @@ extension ToDoListViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailToDoVC = DetailToDoViewController()
         detailToDoVC.modalPresentationStyle = .fullScreen
+        detailToDoVC.detailNotesLabel.text = toDoLists[indexPath.row].Title
+        detailToDoVC.detailDateAndTimeLabel.text = toDoLists[indexPath.row].Date
         present(detailToDoVC, animated: true, completion: nil)
     }
 }
