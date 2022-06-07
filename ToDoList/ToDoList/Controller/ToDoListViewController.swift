@@ -63,15 +63,14 @@ class ToDoListViewController : UIViewController {
     
     private func drawDesign() {
         self.view.backgroundColor = .white
-        tableView.backgroundColor = .clear
-        titleLabel.text = "ToDoList"
-    }
+        tableView.backgroundColor = .clear    }
     
     private func makeTitleLabel() {
+        titleLabel.text = "ToDoList"
         titleLabel.textColor = .purple
         titleLabel.font = .boldSystemFont(ofSize: 24)
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(30)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
             make.left.equalTo(view).offset(10)
             make.height.greaterThanOrEqualTo(10)
         }

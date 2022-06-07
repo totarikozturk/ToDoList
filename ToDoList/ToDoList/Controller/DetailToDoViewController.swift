@@ -10,6 +10,8 @@ class  DetailToDoViewController: UIViewController {
     
     private let cancelButton = UIButton()
     private let doneButton = UIButton()
+    private let notesLabel = UILabel()
+    private let dateAndTimelabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,9 +21,13 @@ class  DetailToDoViewController: UIViewController {
     private func configureView() {
         view.addSubview(cancelButton)
         view.addSubview(doneButton)
+        view.addSubview(notesLabel)
+        view.addSubview(dateAndTimelabel)
         view.backgroundColor = .systemTeal
         makeCancelButton()
         makeDoneButton()
+        makeNotesLabel()
+        makeDateAndTimeLabel()
         cancelButton.addTarget(self, action: #selector(backTodoList), for: .touchUpInside)
     }
     
@@ -41,15 +47,39 @@ class  DetailToDoViewController: UIViewController {
         }
     }
     
+    private func makeNotesLabel() {
+        notesLabel.text = "Notes"
+        notesLabel.textColor = .purple
+        notesLabel.font = .boldSystemFont(ofSize: 24)
+        notesLabel.snp.makeConstraints { make in
+            make.top.equalTo(cancelButton.snp_bottomMargin).offset(20)
+            make.left.equalTo(view).offset(10)
+        }
+    }
+    
+    private func makeDateAndTimeLabel() {
+        dateAndTimelabel.text = "Date & Time "
+        dateAndTimelabel.textColor = .purple
+        dateAndTimelabel.font = .boldSystemFont(ofSize: 24)
+        dateAndTimelabel.snp.makeConstraints { make in
+            make.top.equalTo(notesLabel.snp_bottomMargin).offset(40)
+            make.left.equalTo(view).offset(10)
+        }
+    }
+    
     private func makeDoneButton() {
         doneButton.setTitle("Done", for: .normal)
         doneButton.setTitleColor(UIColor.purple, for: .normal)
-        doneButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        doneButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        doneButton.layer.masksToBounds = true
+        doneButton.layer.borderWidth = 1
+        doneButton.layer.cornerRadius = 16
+        doneButton.clipsToBounds = true
         doneButton.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 40, height: 30))
             make.height.equalTo(cancelButton)
-            make.right.equalTo(view).offset(-5)
-            make.top.equalTo(cancelButton)
+            make.left.equalTo(view).offset(10)
+            make.right.equalTo(view).offset(-10)
+            make.top.equalTo(view.snp.bottom).offset(-50)
         }
     }
 }

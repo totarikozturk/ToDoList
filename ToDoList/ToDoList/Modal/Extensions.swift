@@ -22,6 +22,7 @@ extension ToDoListViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailToDoVC = DetailToDoViewController()
+        detailToDoVC.modalPresentationStyle = .fullScreen
         present(detailToDoVC, animated: true, completion: nil)
     }
 }
