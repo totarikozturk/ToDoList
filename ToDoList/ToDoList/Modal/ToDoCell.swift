@@ -3,22 +3,22 @@
 //
 //  Created by TarıkOzturk on 4.06.2022.
 //
-
 import UIKit
 
 class ToDoCell: UITableViewCell {
     
     var toDoTitleLabel = UILabel()
     var toDoTimeLabel = UILabel()
+    var doneButton = UIButton()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(toDoTitleLabel)
         addSubview(toDoTimeLabel)
-        configureTitleLabel()
-        configureTimeLabel()
-        setToDoTitleLabelConstrainsts()
-        setToDoTimeLabelConstrainsts()
+        addSubview(doneButton)
+        makeTitleLabel()
+        makeTimeLabel()
+        makeDoneButton()
     }
     
     required init?(coder: NSCoder) {
@@ -30,34 +30,41 @@ class ToDoCell: UITableViewCell {
         toDoTimeLabel.text = toDoList.Date
     }
     
-    func configureTitleLabel() {
+    func makeDoneButton() {
+        doneButton.setTitle("Done", for: .normal)
+        doneButton.setTitleColor(UIColor.systemBlue, for: .normal)
+        doneButton.titleLabel?.font = .systemFont(ofSize: 14)
+        doneButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(20)
+            make.left.equalToSuperview()
+            
+        }
+    }
+    
+    func makeTitleLabel() {
         toDoTitleLabel.numberOfLines = 0
         toDoTitleLabel.adjustsFontSizeToFitWidth = true
         toDoTitleLabel.textColor = .systemTeal
         toDoTitleLabel.font = .boldSystemFont(ofSize: 24)
+        toDoTitleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalTo(doneButton.snp_rightMargin).offset(10)
+            make.trailing.equalToSuperview().offset(5)
+            make.height.equalTo(60)
+        }
     }
     
-    func configureTimeLabel() {
+    func makeTimeLabel() {
         toDoTimeLabel.numberOfLines = 0
         toDoTimeLabel.adjustsFontSizeToFitWidth = true
         toDoTimeLabel.textColor = .darkGray
         toDoTimeLabel.font = .boldSystemFont(ofSize: 20)
-    }
-    
-    func setToDoTitleLabelConstrainsts() {
-        toDoTitleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(5)
-        }
-    }
-    
-    func setToDoTimeLabelConstrainsts() {
         toDoTimeLabel.snp.makeConstraints { make in
             make.top.equalTo(toDoTitleLabel).offset(30)
-            make.leading.equalTo(toDoTitleLabel).offset(20)
+            make.left.equalTo(toDoTitleLabel).offset(20)
             make.trailing.equalToSuperview().offset(-20)
-            
+            make.height.equalTo(60)
         }
     }
+   
 }
