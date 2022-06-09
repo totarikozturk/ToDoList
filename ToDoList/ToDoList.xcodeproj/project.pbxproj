@@ -91,7 +91,6 @@
 			children = (
 				D0C68422284E9DCD00599FB8 /* Extensions.swift */,
 				D0C68420284E9DAD00599FB8 /* Structs.swift */,
-				D0C6841E284E9D7800599FB8 /* ToDoCell.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -130,6 +129,7 @@
 		D0E8086F284A821200E16E17 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D0C6841E284E9D7800599FB8 /* ToDoCell.swift */,
 				D009DD4128521D3D001019BC /* TableViewExtension.swift */,
 			);
 			path = View;
