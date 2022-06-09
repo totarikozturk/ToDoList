@@ -4,27 +4,33 @@
 //
 //  Created by TarıkOzturk on 5.06.2022.
 //
+import Foundation
 
-import UIKit
-
-extension ToDoListViewController: UITableViewDelegate,UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return toDoLists.count
+extension UserDefaults {
+    open func setStruct<T: Codable>(_ value: T?, forKey defaultName: String){
+        let data = try? JSONEncoder().encode(value)
+        set(data, forKey: defaultName)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.TodoCell) as! ToDoCell
-        let ToDo = toDoLists[indexPath.row]
-        cell.set(toDoList: ToDo)
-        return cell
+    open func structData<T>(_ type: T.Type, forKey defaultName: String) -> T? where T : Decodable {
+        guard let encodedData = data(forKey: defaultName) else {
+            return nil
+        }
+        
+        return try! JSONDecoder().decode(type, from: encodedData)
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailToDoVC = DetailToDoViewController()
-        detailToDoVC.modalPresentationStyle = .fullScreen
-        detailToDoVC.detailNotesLabel.text = toDoLists[indexPath.row].Title
-        detailToDoVC.detailDateAndTimeLabel.text = toDoLists[indexPath.row].Date
-        present(detailToDoVC, animated: true, completion: nil)
+    open func setStructArray<T: Codable>(_ value: [T], forKey defaultName: String){
+        let data = value.map { try? JSONEncoder().encode($0) }
+        
+        set(data, forKey: defaultName)
+    }
+    
+    open func structArrayData<T>(_ type: T.Type, forKey defaultName: String) -> [T] where T : Decodable {
+        guard let encodedData = array(forKey: defaultName) as? [Data] else {
+            return []
+        }
+        
+        return encodedData.map { try! JSONDecoder().decode(type, from: $0) }
     }
 }

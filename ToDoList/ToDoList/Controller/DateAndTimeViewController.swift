@@ -67,7 +67,7 @@ class DateAndTimeViewController : UIViewController, FSCalendarDelegate {
     
     private func makeCalendar() {
         calendar.delegate = self
-        calendar.frame = CGRect(x: 0, y: 50 , width: view.frame.size.width, height: view.frame.size.width)
+        calendar.frame = CGRect(x: 0, y: 80 , width: view.frame.size.width, height: view.frame.size.width)
     }
     
     private func makeTimePicker() {
@@ -75,7 +75,7 @@ class DateAndTimeViewController : UIViewController, FSCalendarDelegate {
         timePicker.frame = .init(x: 20, y: 100, width: timePicker.bounds.size.width, height: timePicker.bounds.size.height)
         timePicker.snp.makeConstraints { make in
             make.top.equalTo(calendar.snp_bottomMargin).offset(20)
-            make.left.equalTo(view.safeAreaLayoutGuide).offset(100)
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(150)
             make.height.equalTo(50)
         }
     }
