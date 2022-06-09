@@ -7,18 +7,11 @@
 import UIKit
 import SnapKit
 
-var toDoLists: [ToDoListItems] = []
-var createToDoVC = CreateToDoViewController()
-var dateAndTimeVC = DateAndTimeViewController()
-var toDoListVC = ToDoListViewController()
-var detailToDoVC = DetailToDoViewController()
-
 class ToDoListViewController : UIViewController {
     
     private let titleLabel = UILabel()
-    private let tableView = UITableView()
     private let toDoCreateButton = UIButton()
-    var toDoCell1 = ToDoCell()
+    let tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +21,12 @@ class ToDoListViewController : UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tableView.reloadData()
+        updateTableViewData()
     }
     
     func updateTableViewData() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
-            self.tableView.beginUpdates()
-            self.tableView.endUpdates()
         }
     }
     
@@ -84,25 +75,23 @@ class ToDoListViewController : UIViewController {
         tableView.register(ToDoCell.self,forCellReuseIdentifier: Cells.TodoCell)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(10)
+            make.bottom.equalTo(toDoCreateButton.snp.topMargin).offset(10)
             make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
             make.right.equalTo(view.safeAreaLayoutGuide).offset(-10)
-            
         }
     }
     
     private func makeToDoCreateButton() {
-        toDoCreateButton.setTitle("+", for: .normal)
+        toDoCreateButton.setTitle(" + Create Reminder ", for: .normal)
         toDoCreateButton.setTitleColor(UIColor.purple, for: .normal)
-        toDoCreateButton.titleLabel?.font = .boldSystemFont(ofSize: 24)
+        toDoCreateButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
         toDoCreateButton.layer.borderWidth = 1
         toDoCreateButton.layer.cornerRadius = 12
-        toDoCreateButton.clipsToBounds = true
-        toDoCreateButton.layer.masksToBounds = true
         toDoCreateButton.snp.makeConstraints { make in
             make.height.equalTo(titleLabel)
-            make.right.equalTo(view.safeAreaLayoutGuide).offset(-5)
-            make.top.equalTo(titleLabel)
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.top.equalTo(view.snp.bottom).offset(-60)
+            make.width.equalTo(250)
         }
     }
 }

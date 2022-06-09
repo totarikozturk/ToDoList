@@ -16,7 +16,6 @@ class CreateToDoViewController : UIViewController {
     private let setDateAndTimeButton = UISwitch()
     var timePicker = UIDatePicker()
     var toDoTextResult: String = ""
-    var toDoCell = ToDoCell()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +56,6 @@ class CreateToDoViewController : UIViewController {
         dateAndTimeVC.toDoDateAndTimeResult = dateTimeString
         createToDoVC.toDoTextResult = textView.text
         toDoLists.append(ToDoListItems(Title: createToDoVC.toDoTextResult, Date: dateAndTimeVC.toDoDateAndTimeResult))
-        toDoCell.set(toDoList: ToDoListItems(Title: createToDoVC.toDoTextResult, Date: dateAndTimeVC.toDoDateAndTimeResult))
         print(toDoLists)
         toDoListVC.updateTableViewData()
         dismiss(animated: true)
@@ -76,7 +74,7 @@ class CreateToDoViewController : UIViewController {
     }
     
     private func makeDoneButton() {
-        doneButton.setTitle("Done", for: .normal)
+        doneButton.setTitle("Create", for: .normal)
         doneButton.setTitleColor(UIColor.purple, for: .normal)
         doneButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
         doneButton.layer.masksToBounds = true

@@ -11,10 +11,9 @@ class  DetailToDoViewController: UIViewController {
     private let cancelButton = UIButton()
     private let doneButton = UIButton()
     private let notesLabel = UILabel()
-    var detailNotesLabel = UITextField()
     private let dateAndTimelabel = UILabel()
+    var detailNotesLabel = UITextView()
     var detailDateAndTimeLabel = UITextField()
-    var toDoCell = ToDoCell()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +75,7 @@ class  DetailToDoViewController: UIViewController {
     }
     
     private func makeDetailNotesLabel() {
-        
+        detailNotesLabel.font = .systemFont(ofSize: 24)
         detailNotesLabel.snp.makeConstraints { make in
             make.top.equalTo(notesLabel.snp_bottomMargin).offset(20)
             make.left.equalTo(view).offset(10)
@@ -109,10 +108,8 @@ class  DetailToDoViewController: UIViewController {
         doneButton.setTitle("Done", for: .normal)
         doneButton.setTitleColor(UIColor.purple, for: .normal)
         doneButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
-        doneButton.layer.masksToBounds = true
         doneButton.layer.borderWidth = 1
         doneButton.layer.cornerRadius = 16
-        doneButton.clipsToBounds = true
         doneButton.snp.makeConstraints { make in
             make.height.equalTo(cancelButton)
             make.left.equalTo(view).offset(10)
