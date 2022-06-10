@@ -38,11 +38,6 @@ class ToDoCell: UITableViewCell {
             } catch { print(error) }
         }
     
-    func set(toDoList: ToDoListItems) {
-        toDoTitleLabel.text = toDoList.Title
-        toDoTimeLabel.text = toDoList.Date
-    }
-    
     func makeDoneButton() {
         doneButton.setTitle("Done", for: .normal)
         doneButton.setTitleColor(UIColor.systemBlue, for: .normal)

@@ -11,6 +11,7 @@ var toDoListVC = ToDoListViewController()
 var detailToDoVC = DetailToDoViewController()
 var toDoCell = ToDoCell()
 var toDolistsIndexPathRowValue = IndexPath()
+var toDolistsRowValue = Int()
 var toDoLists = [ToDoListItems]()
 
 let CodableKey = "CodableKey"

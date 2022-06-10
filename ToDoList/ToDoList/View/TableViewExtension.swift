@@ -14,16 +14,9 @@ extension ToDoListViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.TodoCell) as! ToDoCell
-        
-        //        var cell = tableView.dequeueReusableCell(withIdentifier: Cells.TodoCell, for: indexPath)
-        //        if cell != nil {
-        //            cell = UITableViewCell(style: .default, reuseIdentifier: Cells.TodoCell) as! ToDoCell
-        //        }
-        //        cell.textLabel?.text = toDoLists[indexPath.row]
         let ToDo = toDoLists[indexPath.row]
         cell.toDoTimeLabel.text = ToDo.Date
         cell.toDoTitleLabel.text = ToDo.Title
-        //cell.set(toDoList: ToDo)
         return cell
     }
     
@@ -40,6 +33,7 @@ extension ToDoListViewController: UITableViewDelegate,UITableViewDataSource {
         detailToDoVC.modalPresentationStyle = .fullScreen
         detailToDoVC.detailNotesLabel.text = toDoLists[indexPath.row].Title
         toDolistsIndexPathRowValue = indexPath
+        toDolistsRowValue = indexPath.row
         detailToDoVC.detailDateAndTimeLabel.text = toDoLists[indexPath.row].Date
         present(detailToDoVC, animated: true, completion: nil)
     }
