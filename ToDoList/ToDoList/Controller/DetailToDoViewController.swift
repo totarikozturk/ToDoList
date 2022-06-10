@@ -47,8 +47,11 @@ class  DetailToDoViewController: UIViewController {
     @objc func createFinish(_ sender: Any) {
         guard let newDetailNotesLabel = detailNotesLabel.text else { return }
         guard let newDetailDateAndTimeLabel = detailDateAndTimeLabel.text else { return }
-        toDoCell.set(toDoList: ToDoListItems(Title: newDetailNotesLabel, Date: newDetailDateAndTimeLabel))
-        toDoListVC.updateTableViewData()
+        dateAndTimeVC.toDoDateAndTimeResult = newDetailDateAndTimeLabel
+        createToDoVC.toDoTextResult = newDetailNotesLabel
+        let entered = ToDoListItems(Title: createToDoVC.toDoTextResult, Date: dateAndTimeVC.toDoDateAndTimeResult)
+        print(entered)
+        toDoCell.save()
         dismiss(animated: true)
     }
     

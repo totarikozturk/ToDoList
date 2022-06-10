@@ -28,6 +28,7 @@ class ToDoListViewController : UIViewController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+        toDoCell.load()
     }
     
     private func configureView() {

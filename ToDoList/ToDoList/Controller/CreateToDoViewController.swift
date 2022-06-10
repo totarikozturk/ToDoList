@@ -45,8 +45,11 @@ class CreateToDoViewController : UIViewController {
     
     @objc func backTodoList() {
         toDoListVC.updateTableViewData()
+        //        toDoLists.removeAll()
+        //        toDoCell.save()
         dismiss(animated: true)
     }
+    
     // MARK: todotextviewresult
     @objc func createFinish(_ sender: Any) {
         let formatter = DateFormatter()
@@ -55,8 +58,9 @@ class CreateToDoViewController : UIViewController {
         let dateTimeString = formatter.string(from: timePicker.date)
         dateAndTimeVC.toDoDateAndTimeResult = dateTimeString
         createToDoVC.toDoTextResult = textView.text
-        toDoLists.append(ToDoListItems(Title: createToDoVC.toDoTextResult, Date: dateAndTimeVC.toDoDateAndTimeResult))
-        print(toDoLists)
+        let entered = ToDoListItems(Title: createToDoVC.toDoTextResult, Date: dateAndTimeVC.toDoDateAndTimeResult)
+        toDoLists.append(entered)
+        toDoCell.save()
         toDoListVC.updateTableViewData()
         dismiss(animated: true)
     }

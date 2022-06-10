@@ -25,6 +25,19 @@ class ToDoCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func save() {
+            guard let data = try? JSONEncoder().encode(toDoLists) else { return }
+            UserDefaults.standard.set(data, forKey: CodableKey)
+        }
+    
+    func load() {
+            guard let loadedData = UserDefaults.standard.data(forKey: CodableKey)  else { return }
+            do {
+                toDoLists = try JSONDecoder().decode([ToDoListItems].self, from: loadedData)
+                toDoListVC.tableView.reloadData()
+            } catch { print(error) }
+        }
+    
     func set(toDoList: ToDoListItems) {
         toDoTitleLabel.text = toDoList.Title
         toDoTimeLabel.text = toDoList.Date

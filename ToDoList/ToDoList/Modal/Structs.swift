@@ -5,12 +5,15 @@
 //
 import Foundation
 
-var toDoLists: [ToDoListItems] =  []
 var createToDoVC = CreateToDoViewController()
 var dateAndTimeVC = DateAndTimeViewController()
 var toDoListVC = ToDoListViewController()
 var detailToDoVC = DetailToDoViewController()
 var toDoCell = ToDoCell()
+var toDolistsIndexPathRowValue = IndexPath()
+var toDoLists = [ToDoListItems]()
+
+let CodableKey = "CodableKey"
 
 struct ToDoListItems: Codable {
     var Title : String
