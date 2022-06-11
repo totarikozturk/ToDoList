@@ -34,7 +34,7 @@ extension DetailToDoViewController {
     }
     
     func makeCancelButton() {
-        cancelButton.setTitle("Cancel", for: .normal)
+        cancelButton.setTitle(buttonsTitle.cancelButton, for: .normal)
         cancelButton.setTitleColor(UIColor.systemBlue, for: .normal)
         cancelButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
         cancelButton.snp.makeConstraints { make in
@@ -46,7 +46,7 @@ extension DetailToDoViewController {
     }
     
     func makeNotesLabel() {
-        notesLabel.text = "Notes"
+        notesLabel.text = labelsTitle.notesLabel
         notesLabel.textColor = .purple
         notesLabel.font = .boldSystemFont(ofSize: 24)
         notesLabel.snp.makeConstraints { make in
@@ -66,7 +66,7 @@ extension DetailToDoViewController {
     }
     
     func makeDateAndTimeLabel() {
-        dateAndTimelabel.text = "Date & Time "
+        dateAndTimelabel.text = labelsTitle.dateAndTimeLabel
         dateAndTimelabel.textColor = .purple
         dateAndTimelabel.font = .boldSystemFont(ofSize: 24)
         dateAndTimelabel.snp.makeConstraints { make in
@@ -85,7 +85,7 @@ extension DetailToDoViewController {
     }
     
     func makeDoneButton() {
-        doneButton.setTitle("Done", for: .normal)
+        doneButton.setTitle(buttonsTitle.doneButton, for: .normal)
         doneButton.setTitleColor(UIColor.purple, for: .normal)
         doneButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
         doneButton.layer.borderWidth = 1

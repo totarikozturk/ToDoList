@@ -35,7 +35,7 @@ class ToDoCell: UITableViewCell {
     }
     
     private func makeDoneButton() {
-        doneButton.setTitle("Done", for: .normal)
+        doneButton.setTitle(buttonsTitle.doneButton, for: .normal)
         doneButton.setTitleColor(UIColor.systemBlue, for: .normal)
         doneButton.titleLabel?.font = .systemFont(ofSize: 14)
         doneButton.snp.makeConstraints { make in

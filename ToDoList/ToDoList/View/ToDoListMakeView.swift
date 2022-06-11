@@ -17,7 +17,7 @@ extension ToDoListViewController {
         toDoCreateButton.addTarget(self, action: #selector(openCreateTodoView), for: .touchUpInside)
     }
     
-     func drawDesign() {
+    func drawDesign() {
         view.addSubview(titleLabel)
         view.addSubview(tableView)
         view.addSubview(toDoCreateButton)
@@ -25,8 +25,8 @@ extension ToDoListViewController {
         tableView.backgroundColor = .clear
     }
     
-     func makeTitleLabel() {
-        titleLabel.text = "ToDoList"
+    func makeTitleLabel() {
+        titleLabel.text = labelsTitle.titleLabel
         titleLabel.textColor = .purple
         titleLabel.font = .boldSystemFont(ofSize: 34)
         titleLabel.snp.makeConstraints { make in
@@ -36,7 +36,7 @@ extension ToDoListViewController {
         }
     }
     
-     func makeTableView() {
+    func makeTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 100
@@ -50,8 +50,8 @@ extension ToDoListViewController {
         }
     }
     
-     func makeToDoCreateButton() {
-        toDoCreateButton.setTitle(" + Create Reminder ", for: .normal)
+    func makeToDoCreateButton() {
+        toDoCreateButton.setTitle(buttonsTitle.createReminderButton, for: .normal)
         toDoCreateButton.setTitleColor(UIColor.purple, for: .normal)
         toDoCreateButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
         toDoCreateButton.layer.borderWidth = 1

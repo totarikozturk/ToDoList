@@ -35,7 +35,7 @@ extension CreateToDoViewController {
     }
     
     func makeCancelButton() {
-        cancelButton.setTitle("Cancel", for: .normal)
+        cancelButton.setTitle(buttonsTitle.cancelButton, for: .normal)
         cancelButton.setTitleColor(UIColor.systemBlue, for: .normal)
         cancelButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
         cancelButton.snp.makeConstraints { make in
@@ -47,7 +47,7 @@ extension CreateToDoViewController {
     }
     
     func makeDoneButton() {
-        doneButton.setTitle("Create", for: .normal)
+        doneButton.setTitle(buttonsTitle.createButton, for: .normal)
         doneButton.setTitleColor(UIColor.purple, for: .normal)
         doneButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
         doneButton.layer.masksToBounds = true
@@ -63,7 +63,7 @@ extension CreateToDoViewController {
     }
     
     func makeReminderLabel() {
-        reminderLabel.text = "Create Reminder"
+        reminderLabel.text = labelsTitle.createReminderLabel
         reminderLabel.textColor = .darkText
         reminderLabel.font = .boldSystemFont(ofSize: 35)
         reminderLabel.snp.makeConstraints { make in
@@ -84,7 +84,7 @@ extension CreateToDoViewController {
     }
     
     func makeDateAndTimeLabel() {
-        DateAndTimeLabel.text = "Set Date & Time"
+        DateAndTimeLabel.text = labelsTitle.setDateAndTimeLabel
         DateAndTimeLabel.textColor = .darkText
         DateAndTimeLabel.font = .boldSystemFont(ofSize: 24)
         DateAndTimeLabel.snp.makeConstraints { make in
