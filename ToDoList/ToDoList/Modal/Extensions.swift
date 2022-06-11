@@ -6,31 +6,19 @@
 //
 import Foundation
 
-extension UserDefaults {
-    open func setStruct<T: Codable>(_ value: T?, forKey defaultName: String){
-        let data = try? JSONEncoder().encode(value)
-        set(data, forKey: defaultName)
+extension ToDoCell {
+    
+    func save() {
+        guard let data = try? JSONEncoder().encode(toDoLists) else { return }
+        UserDefaults.standard.set(data, forKey: CodableKey)
     }
     
-    open func structData<T>(_ type: T.Type, forKey defaultName: String) -> T? where T : Decodable {
-        guard let encodedData = data(forKey: defaultName) else {
-            return nil
-        }
-        
-        return try! JSONDecoder().decode(type, from: encodedData)
+    func load() {
+        guard let loadedData = UserDefaults.standard.data(forKey: CodableKey)  else { return }
+        do {
+            toDoLists = try JSONDecoder().decode([ToDoListItems].self, from: loadedData)
+            toDoListVC.tableView.reloadData()
+        } catch { print(error) }
     }
     
-    open func setStructArray<T: Codable>(_ value: [T], forKey defaultName: String){
-        let data = value.map { try? JSONEncoder().encode($0) }
-        
-        set(data, forKey: defaultName)
-    }
-    
-    open func structArrayData<T>(_ type: T.Type, forKey defaultName: String) -> [T] where T : Decodable {
-        guard let encodedData = array(forKey: defaultName) as? [Data] else {
-            return []
-        }
-        
-        return encodedData.map { try! JSONDecoder().decode(type, from: $0) }
-    }
 }

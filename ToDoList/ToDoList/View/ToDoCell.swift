@@ -21,19 +21,6 @@ class ToDoCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func save() {
-        guard let data = try? JSONEncoder().encode(toDoLists) else { return }
-        UserDefaults.standard.set(data, forKey: CodableKey)
-    }
-    
-    func load() {
-        guard let loadedData = UserDefaults.standard.data(forKey: CodableKey)  else { return }
-        do {
-            toDoLists = try JSONDecoder().decode([ToDoListItems].self, from: loadedData)
-            toDoListVC.tableView.reloadData()
-        } catch { print(error) }
-    }
-    
     private func configure() {
         drawDesign()
         makeTitleLabel()
@@ -41,19 +28,10 @@ class ToDoCell: UITableViewCell {
         makeDoneButton()
     }
     
-    @objc private func toDoFinished() {
-        toDoLists.remove(at: toDolistsIndexPathRowValue)
-        toDoListVC.tableView.deleteRows(at: [toDolistsIndexPathRowValues], with: .none)
-        toDoCell.save()
-        toDoListVC.updateTableViewData()
-        print("tapped")
-    }
-    
     private func drawDesign() {
         addSubview(toDoTitleLabel)
         addSubview(toDoTimeLabel)
         contentView.addSubview(doneButton)
-        doneButton.addTarget(self, action: #selector(toDoFinished), for: .touchUpInside)
     }
     
     private func makeDoneButton() {

@@ -35,8 +35,6 @@ class CreateToDoViewController : UIViewController {
     
     @objc func backTodoList() {
         toDoListVC.updateTableViewData()
-        toDoLists.removeAll()
-        toDoCell.save()
         dismiss(animated: true)
     }
     

@@ -17,17 +17,15 @@ extension ToDoListViewController: UITableViewDelegate,UITableViewDataSource {
         let ToDo = toDoLists[indexPath.row]
         cell.toDoTimeLabel.text = ToDo.Date
         cell.toDoTitleLabel.text = ToDo.Title
+        cell.doneButton.tag = indexPath.row
+        cell.doneButton.addTarget(self, action: #selector(removeCell), for: .touchUpInside)
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            toDoLists.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            toDolistsIndexPathRowValue = indexPath.row
-            toDolistsIndexPathRowValues = indexPath
-            toDoCell.save()
-        }
+    @objc func removeCell(sender: UIButton) {
+        toDoLists.remove(at: sender.tag)
+        toDoCell.save()
+        self.tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
