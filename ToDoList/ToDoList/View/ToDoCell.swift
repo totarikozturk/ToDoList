@@ -13,12 +13,8 @@ class ToDoCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(toDoTitleLabel)
-        addSubview(toDoTimeLabel)
-        addSubview(doneButton)
-        makeTitleLabel()
-        makeTimeLabel()
-        makeDoneButton()
+        
+        configure()
     }
     
     required init?(coder: NSCoder) {
@@ -26,30 +22,51 @@ class ToDoCell: UITableViewCell {
     }
     
     func save() {
-            guard let data = try? JSONEncoder().encode(toDoLists) else { return }
-            UserDefaults.standard.set(data, forKey: CodableKey)
-        }
+        guard let data = try? JSONEncoder().encode(toDoLists) else { return }
+        UserDefaults.standard.set(data, forKey: CodableKey)
+    }
     
     func load() {
-            guard let loadedData = UserDefaults.standard.data(forKey: CodableKey)  else { return }
-            do {
-                toDoLists = try JSONDecoder().decode([ToDoListItems].self, from: loadedData)
-                toDoListVC.tableView.reloadData()
-            } catch { print(error) }
-        }
+        guard let loadedData = UserDefaults.standard.data(forKey: CodableKey)  else { return }
+        do {
+            toDoLists = try JSONDecoder().decode([ToDoListItems].self, from: loadedData)
+            toDoListVC.tableView.reloadData()
+        } catch { print(error) }
+    }
     
-    func makeDoneButton() {
+    private func configure() {
+        drawDesign()
+        makeTitleLabel()
+        makeTimeLabel()
+        makeDoneButton()
+    }
+    
+    @objc private func toDoFinished() {
+        toDoLists.remove(at: toDolistsIndexPathRowValue)
+        toDoListVC.tableView.deleteRows(at: [toDolistsIndexPathRowValues], with: .none)
+        toDoCell.save()
+        toDoListVC.updateTableViewData()
+        print("tapped")
+    }
+    
+    private func drawDesign() {
+        addSubview(toDoTitleLabel)
+        addSubview(toDoTimeLabel)
+        contentView.addSubview(doneButton)
+        doneButton.addTarget(self, action: #selector(toDoFinished), for: .touchUpInside)
+    }
+    
+    private func makeDoneButton() {
         doneButton.setTitle("Done", for: .normal)
         doneButton.setTitleColor(UIColor.systemBlue, for: .normal)
         doneButton.titleLabel?.font = .systemFont(ofSize: 14)
         doneButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(20)
             make.left.equalToSuperview()
-            
         }
     }
     
-    func makeTitleLabel() {
+    private func makeTitleLabel() {
         toDoTitleLabel.numberOfLines = 0
         toDoTitleLabel.adjustsFontSizeToFitWidth = true
         toDoTitleLabel.textColor = .systemTeal
@@ -62,7 +79,7 @@ class ToDoCell: UITableViewCell {
         }
     }
     
-    func makeTimeLabel() {
+    private func makeTimeLabel() {
         toDoTimeLabel.numberOfLines = 0
         toDoTimeLabel.adjustsFontSizeToFitWidth = true
         toDoTimeLabel.textColor = .darkGray
@@ -74,5 +91,5 @@ class ToDoCell: UITableViewCell {
             make.height.equalTo(60)
         }
     }
-   
+    
 }

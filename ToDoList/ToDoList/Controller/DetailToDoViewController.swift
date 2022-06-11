@@ -21,23 +21,13 @@ class  DetailToDoViewController: UIViewController {
     }
     
     private func configureView() {
-        view.addSubview(cancelButton)
-        view.addSubview(doneButton)
-        view.addSubview(notesLabel)
-        view.addSubview(detailNotesLabel)
-        view.addSubview(dateAndTimelabel)
-        view.addSubview(detailDateAndTimeLabel)
-        view.backgroundColor = .white
-        detailNotesLabel.backgroundColor = .darkGray
-        detailDateAndTimeLabel.backgroundColor = .darkGray
+        drawDesign()
         makeCancelButton()
         makeDoneButton()
         makeNotesLabel()
         makeDetailNotesLabel()
         makeDateAndTimeLabel()
         makeDetailDateAndTimeLabel()
-        cancelButton.addTarget(self, action: #selector(backTodoList), for: .touchUpInside)
-        doneButton.addTarget(self, action: #selector(createFinish), for: .touchUpInside)
     }
     
     @objc func backTodoList() {
@@ -52,6 +42,20 @@ class  DetailToDoViewController: UIViewController {
         toDoLists.insert(entered, at: toDolistsRowValue)
         toDoCell.save()
         dismiss(animated: true)
+    }
+    
+    private func drawDesign() {
+        view.addSubview(cancelButton)
+        view.addSubview(doneButton)
+        view.addSubview(notesLabel)
+        view.addSubview(detailNotesLabel)
+        view.addSubview(dateAndTimelabel)
+        view.addSubview(detailDateAndTimeLabel)
+        view.backgroundColor = .white
+        detailNotesLabel.backgroundColor = .darkGray
+        detailDateAndTimeLabel.backgroundColor = .darkGray
+        cancelButton.addTarget(self, action: #selector(backTodoList), for: .touchUpInside)
+        doneButton.addTarget(self, action: #selector(createFinish), for: .touchUpInside)
     }
     
     private func makeCancelButton() {
@@ -97,7 +101,6 @@ class  DetailToDoViewController: UIViewController {
     }
     
     private func makeDetailDateAndTimeLabel() {
-        
         detailDateAndTimeLabel.snp.makeConstraints { make in
             make.top.equalTo(dateAndTimelabel.snp_bottomMargin).offset(20)
             make.left.equalTo(view).offset(10)

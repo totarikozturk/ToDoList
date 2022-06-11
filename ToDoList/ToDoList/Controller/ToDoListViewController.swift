@@ -32,37 +32,33 @@ class ToDoListViewController : UIViewController {
     }
     
     private func configureView() {
-        view.addSubview(titleLabel)
-        view.addSubview(tableView)
-        view.addSubview(toDoCreateButton)
-        view.backgroundColor = .white
         drawDesign()
         makeTitleLabel()
         makeTableView()
         makeToDoCreateButton()
         toDoCreateButton.addTarget(self, action: #selector(openCreateTodoView), for: .touchUpInside)
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-        view.addSubview(self.tableView)
     }
     
     @objc func openCreateTodoView() {
-        let createToDoVC = CreateToDoViewController()
-        createToDoVC.modalPresentationStyle = .fullScreen
-        present(createToDoVC, animated: true, completion: nil)
+        let navigation = UINavigationController(rootViewController: CreateToDoViewController())
+        navigation.modalPresentationStyle = .fullScreen
+        self.present(navigation,animated: true,completion: nil)
     }
     
     private func drawDesign() {
-        self.view.backgroundColor = .white
-        tableView.backgroundColor = .clear    }
+        view.addSubview(titleLabel)
+        view.addSubview(tableView)
+        view.addSubview(toDoCreateButton)
+        view.backgroundColor = .white
+        tableView.backgroundColor = .clear
+    }
     
     private func makeTitleLabel() {
         titleLabel.text = "ToDoList"
         titleLabel.textColor = .purple
         titleLabel.font = .boldSystemFont(ofSize: 34)
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(48)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
             make.left.equalTo(view).offset(10)
             make.height.greaterThanOrEqualTo(10)
         }

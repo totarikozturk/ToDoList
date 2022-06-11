@@ -23,15 +23,7 @@ class CreateToDoViewController : UIViewController {
     }
     
     private func configureView() {
-        view.addSubview(cancelButton)
-        view.addSubview(doneButton)
-        view.addSubview(reminderLabel)
-        view.addSubview(textView)
-        view.addSubview(DateAndTimeLabel)
-        view.addSubview(setDateAndTimeButton)
-        view.addSubview(timePicker)
-        view.backgroundColor = .white
-        textView.backgroundColor = .lightGray
+        drawDesign()
         makeCancelButton()
         makeDoneButton()
         makeTextView()
@@ -39,14 +31,12 @@ class CreateToDoViewController : UIViewController {
         makeDateAndTimeLabel()
         makeSetDateAndTimeButton()
         makeTimePicker()
-        cancelButton.addTarget(self, action: #selector(backTodoList), for: .touchUpInside)
-        doneButton.addTarget(self, action: #selector(createFinish), for: .touchUpInside)
     }
     
     @objc func backTodoList() {
         toDoListVC.updateTableViewData()
-                toDoLists.removeAll()
-                toDoCell.save()
+        toDoLists.removeAll()
+        toDoCell.save()
         dismiss(animated: true)
     }
     
@@ -61,6 +51,33 @@ class CreateToDoViewController : UIViewController {
         toDoCell.save()
         toDoListVC.updateTableViewData()
         dismiss(animated: true)
+    }
+    
+    @objc func switchStateDidChange(_ sender:UISwitch!) {
+        if (sender.isOn == true){
+            print("UISwitch state is now ON")
+            setDateAndTimeButton.setOn(true, animated: false)
+            let dateAndTimeVC = DateAndTimeViewController()
+            dateAndTimeVC.modalPresentationStyle = .fullScreen
+            present(dateAndTimeVC, animated: true, completion: nil)
+        }
+        else{
+            print("UISwitch state is now Off")
+        }
+    }
+    
+    private func drawDesign() {
+        view.addSubview(cancelButton)
+        view.addSubview(doneButton)
+        view.addSubview(reminderLabel)
+        view.addSubview(textView)
+        view.addSubview(DateAndTimeLabel)
+        view.addSubview(setDateAndTimeButton)
+        view.addSubview(timePicker)
+        view.backgroundColor = .white
+        textView.backgroundColor = .lightGray
+        cancelButton.addTarget(self, action: #selector(backTodoList), for: .touchUpInside)
+        doneButton.addTarget(self, action: #selector(createFinish), for: .touchUpInside)
     }
     
     private func makeCancelButton() {
@@ -138,18 +155,6 @@ class CreateToDoViewController : UIViewController {
         }
     }
     
-    @objc func switchStateDidChange(_ sender:UISwitch!) {
-        if (sender.isOn == true){
-            print("UISwitch state is now ON")
-            setDateAndTimeButton.setOn(true, animated: false)
-            let dateAndTimeVC = DateAndTimeViewController()
-            dateAndTimeVC.modalPresentationStyle = .fullScreen
-            present(dateAndTimeVC, animated: true, completion: nil)
-        }
-        else{
-            print("UISwitch state is now Off")
-        }
-    }
 }
 
 

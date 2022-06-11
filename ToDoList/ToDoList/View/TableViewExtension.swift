@@ -24,6 +24,8 @@ extension ToDoListViewController: UITableViewDelegate,UITableViewDataSource {
         if editingStyle == .delete {
             toDoLists.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            toDolistsIndexPathRowValue = indexPath.row
+            toDolistsIndexPathRowValues = indexPath
             toDoCell.save()
         }
     }
@@ -32,7 +34,6 @@ extension ToDoListViewController: UITableViewDelegate,UITableViewDataSource {
         let detailToDoVC = DetailToDoViewController()
         detailToDoVC.modalPresentationStyle = .fullScreen
         detailToDoVC.detailNotesLabel.text = toDoLists[indexPath.row].Title
-        toDolistsIndexPathRowValue = indexPath
         toDolistsRowValue = indexPath.row
         detailToDoVC.detailDateAndTimeLabel.text = toDoLists[indexPath.row].Date
         present(detailToDoVC, animated: true, completion: nil)
