@@ -38,9 +38,9 @@ class  DetailToDoViewController: UIViewController {
         guard let newDetailNotesLabel = detailNotesLabel.text else { return }
         guard let newDetailDateAndTimeLabel = detailDateAndTimeLabel.text else { return }
         let entered = ToDoListItems(Title: newDetailNotesLabel, Date: newDetailDateAndTimeLabel)
-        toDoLists.remove(at: toDolistsRowValue)
-        toDoLists.insert(entered, at: toDolistsRowValue)
-        toDoCell.save()
+        globalVar.toDoLists.remove(at: globalVar.toDolistsRowValue)
+        globalVar.toDoLists.insert(entered, at: globalVar.toDolistsRowValue)
+        globalVar.toDoCell.save()
         dismiss(animated: true)
     }
     
@@ -122,6 +122,7 @@ class  DetailToDoViewController: UIViewController {
             make.top.equalTo(view.snp.bottom).offset(-50)
         }
     }
+    
 }
 
 

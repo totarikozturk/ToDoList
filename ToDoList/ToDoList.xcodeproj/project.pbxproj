@@ -16,8 +16,8 @@
 		D0445651284919B600A9DB93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D044564F284919B600A9DB93 /* LaunchScreen.storyboard */; };
 		D0B1895828492AEF0023E186 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D0B1895728492AEF0023E186 /* SnapKit */; settings = {ATTRIBUTES = (Required, ); }; };
 		D0C6841F284E9D7800599FB8 /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C6841E284E9D7800599FB8 /* ToDoCell.swift */; };
-		D0C68421284E9DAD00599FB8 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C68420284E9DAD00599FB8 /* Structs.swift */; };
-		D0C68423284E9DCD00599FB8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C68422284E9DCD00599FB8 /* Extensions.swift */; };
+		D0C68421284E9DAD00599FB8 /* VariableStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C68420284E9DAD00599FB8 /* VariableStructs.swift */; };
+		D0C68423284E9DCD00599FB8 /* CodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C68422284E9DCD00599FB8 /* CodableExtension.swift */; };
 		D0E80868284A801000E16E17 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E80867284A801000E16E17 /* ToDoListViewController.swift */; };
 		D0E80877284C021600E16E17 /* CreateToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E80876284C021500E16E17 /* CreateToDoViewController.swift */; };
 		D0E8087B284C0C2800E16E17 /* DetailToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E8087A284C0C2800E16E17 /* DetailToDoViewController.swift */; };
@@ -33,8 +33,8 @@
 		D0445650284919B600A9DB93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0445652284919B600A9DB93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0C6841E284E9D7800599FB8 /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
-		D0C68420284E9DAD00599FB8 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
-		D0C68422284E9DCD00599FB8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D0C68420284E9DAD00599FB8 /* VariableStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableStructs.swift; sourceTree = "<group>"; };
+		D0C68422284E9DCD00599FB8 /* CodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableExtension.swift; sourceTree = "<group>"; };
 		D0E80867284A801000E16E17 /* ToDoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
 		D0E80876284C021500E16E17 /* CreateToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateToDoViewController.swift; sourceTree = "<group>"; };
 		D0E8087A284C0C2800E16E17 /* DetailToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailToDoViewController.swift; sourceTree = "<group>"; };
@@ -84,8 +84,8 @@
 		D0C68425284E9E5B00599FB8 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				D0C68422284E9DCD00599FB8 /* Extensions.swift */,
-				D0C68420284E9DAD00599FB8 /* Structs.swift */,
+				D0C68422284E9DCD00599FB8 /* CodableExtension.swift */,
+				D0C68420284E9DAD00599FB8 /* VariableStructs.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -207,13 +207,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0C68421284E9DAD00599FB8 /* Structs.swift in Sources */,
+				D0C68421284E9DAD00599FB8 /* VariableStructs.swift in Sources */,
 				D0E8087B284C0C2800E16E17 /* DetailToDoViewController.swift in Sources */,
 				D0E80868284A801000E16E17 /* ToDoListViewController.swift in Sources */,
 				D0C6841F284E9D7800599FB8 /* ToDoCell.swift in Sources */,
 				D009DD4228521D3D001019BC /* TableViewExtension.swift in Sources */,
 				D03BDEBB284D13D20056EA96 /* DateAndTimeViewController.swift in Sources */,
-				D0C68423284E9DCD00599FB8 /* Extensions.swift in Sources */,
+				D0C68423284E9DCD00599FB8 /* CodableExtension.swift in Sources */,
 				D0445645284919B500A9DB93 /* AppDelegate.swift in Sources */,
 				D0445647284919B500A9DB93 /* SceneDelegate.swift in Sources */,
 				D0E80877284C021600E16E17 /* CreateToDoViewController.swift in Sources */,

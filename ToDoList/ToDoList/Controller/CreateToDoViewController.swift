@@ -34,7 +34,7 @@ class CreateToDoViewController : UIViewController {
     }
     
     @objc func backTodoList() {
-        toDoListVC.updateTableViewData()
+        globalVar.toDoListVC.updateTableViewData()
         dismiss(animated: true)
     }
     
@@ -45,9 +45,9 @@ class CreateToDoViewController : UIViewController {
         formatter.timeStyle = .medium
         let dateTimeString = formatter.string(from: timePicker.date)
         let entered = ToDoListItems(Title: textView.text, Date: dateTimeString)
-        toDoLists.append(entered)
-        toDoCell.save()
-        toDoListVC.updateTableViewData()
+        globalVar.toDoLists.append(entered)
+        globalVar.toDoCell.save()
+        globalVar.toDoListVC.updateTableViewData()
         dismiss(animated: true)
     }
     
