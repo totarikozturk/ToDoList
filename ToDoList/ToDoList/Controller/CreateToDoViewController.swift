@@ -13,7 +13,6 @@ class CreateToDoViewController : UIViewController {
     let reminderLabel = UILabel()
     let textView = UITextView()
     let DateAndTimeLabel = UILabel()
-    let setDateAndTimeButton = UISwitch()
     var timePicker = UIDatePicker()
     var toDoTextResult: String = ""
     
@@ -38,19 +37,6 @@ class CreateToDoViewController : UIViewController {
         globalVar.toDoCell.save()
         globalVar.toDoListVC.updateTableViewData()
         dismiss(animated: true)
-    }
-    
-    @objc func switchStateDidChange(_ sender:UISwitch!) {
-        if (sender.isOn == true){
-            print("UISwitch state is now ON")
-            setDateAndTimeButton.setOn(true, animated: false)
-            let dateAndTimeVC = DateAndTimeViewController()
-            dateAndTimeVC.modalPresentationStyle = .fullScreen
-            present(dateAndTimeVC, animated: true, completion: nil)
-        }
-        else{
-            print("UISwitch state is now Off")
-        }
     }
     
 }

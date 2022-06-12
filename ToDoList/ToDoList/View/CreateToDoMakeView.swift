@@ -16,7 +16,6 @@ extension CreateToDoViewController {
         makeTextView()
         makeReminderLabel()
         makeDateAndTimeLabel()
-        makeSetDateAndTimeButton()
         makeTimePicker()
     }
     
@@ -26,7 +25,6 @@ extension CreateToDoViewController {
         view.addSubview(reminderLabel)
         view.addSubview(textView)
         view.addSubview(DateAndTimeLabel)
-        view.addSubview(setDateAndTimeButton)
         view.addSubview(timePicker)
         view.backgroundColor = .white
         textView.backgroundColor = .systemFill
@@ -95,19 +93,11 @@ extension CreateToDoViewController {
         }
     }
     
-    func makeSetDateAndTimeButton() {
-        setDateAndTimeButton.addTarget(self, action: #selector(self.switchStateDidChange(_:)), for: .valueChanged)
-        setDateAndTimeButton.snp.makeConstraints { make in
-            make.top.equalTo(textView.snp.bottom).offset(10)
-            make.right.equalTo(view.safeAreaLayoutGuide).offset(-15)
-        }
-    }
-    
     func makeTimePicker() {
         timePicker.datePickerMode = .dateAndTime
         timePicker.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 250, height: 50))
-            make.top.equalTo(setDateAndTimeButton.snp_bottomMargin).offset(10)
+            make.top.equalTo(DateAndTimeLabel.snp_bottomMargin).offset(10)
         }
     }
     

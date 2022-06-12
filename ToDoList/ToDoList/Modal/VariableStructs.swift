@@ -7,7 +7,6 @@ import Foundation
 
 struct globalVar {
     static  var createToDoVC = CreateToDoViewController()
-    static var dateAndTimeVC = DateAndTimeViewController()
     static var toDoListVC = ToDoListViewController()
     static var detailToDoVC = DetailToDoViewController()
     static var toDoCell = ToDoCell()

@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D009DD4228521D3D001019BC /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D009DD4128521D3D001019BC /* TableViewExtension.swift */; };
-		D03BDEB9284D011B0056EA96 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D03BDEB8284D011B0056EA96 /* FSCalendar */; };
-		D03BDEBB284D13D20056EA96 /* DateAndTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BDEBA284D13D20056EA96 /* DateAndTimeViewController.swift */; };
 		D0445645284919B500A9DB93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0445644284919B500A9DB93 /* AppDelegate.swift */; };
 		D0445647284919B500A9DB93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0445646284919B500A9DB93 /* SceneDelegate.swift */; };
 		D044564E284919B600A9DB93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D044564D284919B600A9DB93 /* Assets.xcassets */; };
@@ -28,7 +26,6 @@
 
 /* Begin PBXFileReference section */
 		D009DD4128521D3D001019BC /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
-		D03BDEBA284D13D20056EA96 /* DateAndTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAndTimeViewController.swift; sourceTree = "<group>"; };
 		D0445641284919B500A9DB93 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0445644284919B500A9DB93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0445646284919B500A9DB93 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +49,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0B1895828492AEF0023E186 /* SnapKit in Frameworks */,
-				D03BDEB9284D011B0056EA96 /* FSCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +117,6 @@
 				D0E80867284A801000E16E17 /* ToDoListViewController.swift */,
 				D0E8087A284C0C2800E16E17 /* DetailToDoViewController.swift */,
 				D0E80876284C021500E16E17 /* CreateToDoViewController.swift */,
-				D03BDEBA284D13D20056EA96 /* DateAndTimeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -156,7 +151,6 @@
 			name = ToDoList;
 			packageProductDependencies = (
 				D0B1895728492AEF0023E186 /* SnapKit */,
-				D03BDEB8284D011B0056EA96 /* FSCalendar */,
 			);
 			productName = ToDoList;
 			productReference = D0445641284919B500A9DB93 /* ToDoList.app */;
@@ -188,7 +182,6 @@
 			mainGroup = D0445638284919B500A9DB93;
 			packageReferences = (
 				D0B1895628492AEF0023E186 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				D03BDEB7284D011B0056EA96 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = D0445642284919B500A9DB93 /* Products */;
 			projectDirPath = "";
@@ -222,7 +215,6 @@
 				D0C6841F284E9D7800599FB8 /* ToDoCell.swift in Sources */,
 				D0B4F04A2855298900F4A166 /* ToDoListMakeView.swift in Sources */,
 				D009DD4228521D3D001019BC /* TableViewExtension.swift in Sources */,
-				D03BDEBB284D13D20056EA96 /* DateAndTimeViewController.swift in Sources */,
 				D0C68423284E9DCD00599FB8 /* CodableExtension.swift in Sources */,
 				D0B4F04E28552B2100F4A166 /* CreateToDoMakeView.swift in Sources */,
 				D0445645284919B500A9DB93 /* AppDelegate.swift in Sources */,
@@ -440,14 +432,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D03BDEB7284D011B0056EA96 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
-			requirement = {
-				kind = exactVersion;
-				version = 2.8.4;
-			};
-		};
 		D0B1895628492AEF0023E186 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -459,11 +443,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D03BDEB8284D011B0056EA96 /* FSCalendar */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D03BDEB7284D011B0056EA96 /* XCRemoteSwiftPackageReference "FSCalendar" */;
-			productName = FSCalendar;
-		};
 		D0B1895728492AEF0023E186 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D0B1895628492AEF0023E186 /* XCRemoteSwiftPackageReference "SnapKit" */;
