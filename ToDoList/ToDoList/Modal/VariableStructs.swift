@@ -6,12 +6,12 @@
 import Foundation
 
 struct globalVar {
-    static  var createToDoVC = CreateToDoViewController()
-    static var toDoListVC = ToDoListViewController()
-    static var detailToDoVC = DetailToDoViewController()
-    static var toDoCell = ToDoCell()
-    static var toDolistsIndexPathRowValue = Int()
-    static var toDolistsIndexPathRowValues = IndexPath()
+    static let createToDoVC = CreateToDoViewController()
+    static let toDoListVC = ToDoListViewController()
+    static let detailToDoVC = DetailToDoViewController()
+    static let toDoCell = ToDoCell()
+    static let toDolistsIndexPathRowValue = Int()
+    static let toDolistsIndexPathRowValues = IndexPath()
     static var toDolistsRowValue = Int()
     static var toDoLists = [ToDoListItems]()
 }

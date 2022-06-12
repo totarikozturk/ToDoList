@@ -12,20 +12,20 @@ extension DetailToDoViewController {
     func configureView() {
         drawDesign()
         makeCancelButton()
-        makeDoneButton()
         makeNotesLabel()
         makeDetailNotesLabel()
         makeDateAndTimeLabel()
         makeDetailDateAndTimeLabel()
+        makeDoneButton()
     }
     
     func drawDesign() {
         view.addSubview(cancelButton)
-        view.addSubview(doneButton)
         view.addSubview(notesLabel)
         view.addSubview(detailNotesLabel)
         view.addSubview(dateAndTimelabel)
         view.addSubview(detailDateAndTimeLabel)
+        view.addSubview(doneButton)
         view.backgroundColor = .white
         detailNotesLabel.backgroundColor = .systemFill
         detailDateAndTimeLabel.backgroundColor = .systemFill

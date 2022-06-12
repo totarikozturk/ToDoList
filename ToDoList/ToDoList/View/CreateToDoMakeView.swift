@@ -12,20 +12,21 @@ extension CreateToDoViewController {
     func configureView() {
         drawDesign()
         makeCancelButton()
-        makeDoneButton()
-        makeTextView()
         makeReminderLabel()
+        makeTextView()
         makeDateAndTimeLabel()
         makeTimePicker()
+        makeDoneButton()
     }
     
     func drawDesign() {
         view.addSubview(cancelButton)
-        view.addSubview(createReminderButton)
         view.addSubview(reminderLabel)
         view.addSubview(textView)
         view.addSubview(DateAndTimeLabel)
         view.addSubview(timePicker)
+        view.addSubview(createReminderButton)
+        
         view.backgroundColor = .white
         textView.backgroundColor = .systemFill
         cancelButton.addTarget(self, action: #selector(backTodoList), for: .touchUpInside)
@@ -41,22 +42,6 @@ extension CreateToDoViewController {
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
             make.left.equalTo(view).offset(10)
             make.height.greaterThanOrEqualTo(10)
-        }
-    }
-    
-    func makeDoneButton() {
-        createReminderButton.setTitle(buttonsTitle.createButton, for: .normal)
-        createReminderButton.setTitleColor(UIColor.purple, for: .normal)
-        createReminderButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
-        createReminderButton.layer.masksToBounds = true
-        createReminderButton.layer.borderWidth = 1
-        createReminderButton.layer.cornerRadius = 16
-        createReminderButton.clipsToBounds = true
-        createReminderButton.snp.makeConstraints { make in
-            make.height.equalTo(reminderLabel)
-            make.left.equalTo(view).offset(10)
-            make.right.equalTo(view).offset(-10)
-            make.top.equalTo(view.snp.bottom).offset(-60)
         }
     }
     
@@ -98,6 +83,22 @@ extension CreateToDoViewController {
         timePicker.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 250, height: 50))
             make.top.equalTo(DateAndTimeLabel.snp_bottomMargin).offset(10)
+        }
+    }
+    
+    func makeDoneButton() {
+        createReminderButton.setTitle(buttonsTitle.createButton, for: .normal)
+        createReminderButton.setTitleColor(UIColor.purple, for: .normal)
+        createReminderButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        createReminderButton.layer.masksToBounds = true
+        createReminderButton.layer.borderWidth = 1
+        createReminderButton.layer.cornerRadius = 16
+        createReminderButton.clipsToBounds = true
+        createReminderButton.snp.makeConstraints { make in
+            make.height.equalTo(reminderLabel)
+            make.left.equalTo(view).offset(10)
+            make.right.equalTo(view).offset(-10)
+            make.top.equalTo(view.snp.bottom).offset(-60)
         }
     }
     

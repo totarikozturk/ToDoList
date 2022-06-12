@@ -7,9 +7,9 @@ import UIKit
 
 class ToDoCell: UITableViewCell {
     
-    var toDoTitleLabel = UILabel()
-    var toDoTimeLabel = UILabel()
-    var doneButton = UIButton()
+    let toDoTitleLabel = UILabel()
+    let toDoTimeLabel = UILabel()
+    let doneButton = UIButton()
     let size:CGFloat = 30.0
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -34,27 +34,14 @@ class ToDoCell: UITableViewCell {
         addSubview(toDoTitleLabel)
         addSubview(toDoTimeLabel)
         contentView.addSubview(doneButton)
-        doneButton.bounds = CGRect(x: 0, y: 0, width: size, height: size)
-        doneButton.layer.cornerRadius = size / 2
-        doneButton.layer.borderWidth = 3.0
-        doneButton.layer.backgroundColor = UIColor.clear.cgColor
-        doneButton.layer.borderColor = UIColor.systemBlue.cgColor
         contentView.layer.cornerRadius = 15
         contentView.clipsToBounds = true
-        
     }
-    override func layoutSubviews() {
-          super.layoutSubviews()
-          let bottomSpace: CGFloat = 10.0
-          self.contentView.frame = self.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: bottomSpace, right: 0))
-     }
     
-    private func makeDoneButton() {
-        doneButton.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 30, height: 30))
-            make.top.equalToSuperview().offset(20)
-            make.left.equalToSuperview().offset(5)
-        }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let bottomSpace: CGFloat = 10.0
+        self.contentView.frame = self.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: bottomSpace, right: 0))
     }
     
     private func makeTitleLabel() {
@@ -80,6 +67,19 @@ class ToDoCell: UITableViewCell {
             make.left.equalTo(toDoTitleLabel).offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(60)
+        }
+    }
+    
+    private func makeDoneButton() {
+        doneButton.bounds = CGRect(x: 0, y: 0, width: size, height: size)
+        doneButton.layer.cornerRadius = size / 2
+        doneButton.layer.borderWidth = 3.0
+        doneButton.layer.backgroundColor = UIColor.clear.cgColor
+        doneButton.layer.borderColor = UIColor.systemBlue.cgColor
+        doneButton.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 30, height: 30))
+            make.top.equalToSuperview().offset(20)
+            make.left.equalToSuperview().offset(5)
         }
     }
     

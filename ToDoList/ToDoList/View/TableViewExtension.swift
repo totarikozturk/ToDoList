@@ -36,4 +36,5 @@ extension ToDoListViewController: UITableViewDelegate,UITableViewDataSource {
         detailToDoVC.detailDateAndTimeLabel.text = globalVar.toDoLists[indexPath.row].Date
         present(detailToDoVC, animated: true, completion: nil)
     }
+    
 }

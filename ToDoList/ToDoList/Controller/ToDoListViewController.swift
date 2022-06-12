@@ -10,8 +10,8 @@ import SnapKit
 class ToDoListViewController : UIViewController {
     
     let titleLabel = UILabel()
-    let toDoCreateButton = UIButton()
     let tableView = UITableView()
+    let toDoCreateButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()

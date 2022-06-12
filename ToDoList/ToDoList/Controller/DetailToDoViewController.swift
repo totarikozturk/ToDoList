@@ -9,11 +9,11 @@ import SnapKit
 class  DetailToDoViewController: UIViewController {
     
     let cancelButton = UIButton()
-    let doneButton = UIButton()
     let notesLabel = UILabel()
+    let detailNotesLabel = UITextView()
     let dateAndTimelabel = UILabel()
-    var detailNotesLabel = UITextView()
-    var detailDateAndTimeLabel = UITextField()
+    let detailDateAndTimeLabel = UITextField()
+    let doneButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()

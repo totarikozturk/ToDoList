@@ -9,12 +9,11 @@ import SnapKit
 class CreateToDoViewController : UIViewController {
     
     let cancelButton = UIButton()
-    let createReminderButton = UIButton()
     let reminderLabel = UILabel()
     let textView = UITextView()
     let DateAndTimeLabel = UILabel()
-    var timePicker = UIDatePicker()
-    var toDoTextResult: String = ""
+    let timePicker = UIDatePicker()
+    let createReminderButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
