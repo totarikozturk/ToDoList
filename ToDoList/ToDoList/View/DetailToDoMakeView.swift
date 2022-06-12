@@ -27,8 +27,8 @@ extension DetailToDoViewController {
         view.addSubview(dateAndTimelabel)
         view.addSubview(detailDateAndTimeLabel)
         view.backgroundColor = .white
-        detailNotesLabel.backgroundColor = .darkGray
-        detailDateAndTimeLabel.backgroundColor = .darkGray
+        detailNotesLabel.backgroundColor = .systemFill
+        detailDateAndTimeLabel.backgroundColor = .systemFill
         cancelButton.addTarget(self, action: #selector(backTodoList), for: .touchUpInside)
         doneButton.addTarget(self, action: #selector(createFinish), for: .touchUpInside)
     }
@@ -57,6 +57,8 @@ extension DetailToDoViewController {
     
     func makeDetailNotesLabel() {
         detailNotesLabel.font = .systemFont(ofSize: 24)
+        detailNotesLabel.layer.cornerRadius = 15
+        detailNotesLabel.clipsToBounds = true
         detailNotesLabel.snp.makeConstraints { make in
             make.top.equalTo(notesLabel.snp_bottomMargin).offset(20)
             make.left.equalTo(view).offset(10)
@@ -76,6 +78,9 @@ extension DetailToDoViewController {
     }
     
     func makeDetailDateAndTimeLabel() {
+        detailDateAndTimeLabel.font = .systemFont(ofSize: 24)
+        detailDateAndTimeLabel.layer.cornerRadius = 15
+        detailDateAndTimeLabel.clipsToBounds = true
         detailDateAndTimeLabel.snp.makeConstraints { make in
             make.top.equalTo(dateAndTimelabel.snp_bottomMargin).offset(20)
             make.left.equalTo(view).offset(10)

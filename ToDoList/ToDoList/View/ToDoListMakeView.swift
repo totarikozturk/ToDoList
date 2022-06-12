@@ -39,9 +39,10 @@ extension ToDoListViewController {
     func makeTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 100
+        tableView.rowHeight = 80
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(ToDoCell.self,forCellReuseIdentifier: Cells.TodoCell)
+        tableView.separatorStyle = .none
         tableView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.bottom.equalTo(toDoCreateButton.snp.topMargin).offset(10)
@@ -60,7 +61,7 @@ extension ToDoListViewController {
             make.height.equalTo(titleLabel)
             make.left.equalTo(view.safeAreaLayoutGuide).offset(20)
             make.top.equalTo(view.snp.bottom).offset(-60)
-            make.width.equalTo(250)
+            make.width.equalTo(200)
         }
     }
     

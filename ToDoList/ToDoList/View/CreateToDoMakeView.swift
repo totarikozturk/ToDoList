@@ -29,7 +29,7 @@ extension CreateToDoViewController {
         view.addSubview(setDateAndTimeButton)
         view.addSubview(timePicker)
         view.backgroundColor = .white
-        textView.backgroundColor = .lightGray
+        textView.backgroundColor = .systemFill
         cancelButton.addTarget(self, action: #selector(backTodoList), for: .touchUpInside)
         doneButton.addTarget(self, action: #selector(createFinish), for: .touchUpInside)
     }
@@ -55,19 +55,19 @@ extension CreateToDoViewController {
         doneButton.layer.cornerRadius = 16
         doneButton.clipsToBounds = true
         doneButton.snp.makeConstraints { make in
-            make.height.equalTo(cancelButton)
+            make.height.equalTo(reminderLabel)
             make.left.equalTo(view).offset(10)
             make.right.equalTo(view).offset(-10)
-            make.top.equalTo(view.snp.bottom).offset(-50)
+            make.top.equalTo(view.snp.bottom).offset(-60)
         }
     }
     
     func makeReminderLabel() {
         reminderLabel.text = labelsTitle.createReminderLabel
-        reminderLabel.textColor = .darkText
-        reminderLabel.font = .boldSystemFont(ofSize: 35)
+        reminderLabel.textColor = .purple
+        reminderLabel.font = .boldSystemFont(ofSize: 24)
         reminderLabel.snp.makeConstraints { make in
-            make.top.equalTo(cancelButton.snp.bottom).offset(25)
+            make.top.equalTo(cancelButton.snp.bottom).offset(10)
             make.left.equalTo(view).offset(10)
             make.right.equalTo(view).offset(-10)
             make.height.equalTo(40)
@@ -75,8 +75,10 @@ extension CreateToDoViewController {
     }
     
     func makeTextView() {
+        textView.layer.cornerRadius = 15
+        textView.clipsToBounds = true
         textView.snp.makeConstraints { make in
-            make.top.equalTo(reminderLabel.snp.bottom).offset(30)
+            make.top.equalTo(reminderLabel.snp.bottom).offset(10)
             make.left.equalTo(view).offset(10)
             make.right.equalTo(view).offset(-10)
             make.height.equalTo(40)
@@ -85,10 +87,10 @@ extension CreateToDoViewController {
     
     func makeDateAndTimeLabel() {
         DateAndTimeLabel.text = labelsTitle.setDateAndTimeLabel
-        DateAndTimeLabel.textColor = .darkText
-        DateAndTimeLabel.font = .boldSystemFont(ofSize: 24)
+        DateAndTimeLabel.textColor = .purple
+        DateAndTimeLabel.font = .boldSystemFont(ofSize: 20)
         DateAndTimeLabel.snp.makeConstraints { make in
-            make.top.equalTo(textView.snp.bottom).offset(30)
+            make.top.equalTo(textView.snp.bottom).offset(10)
             make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
         }
     }
@@ -96,7 +98,7 @@ extension CreateToDoViewController {
     func makeSetDateAndTimeButton() {
         setDateAndTimeButton.addTarget(self, action: #selector(self.switchStateDidChange(_:)), for: .valueChanged)
         setDateAndTimeButton.snp.makeConstraints { make in
-            make.top.equalTo(textView.snp.bottom).offset(30)
+            make.top.equalTo(textView.snp.bottom).offset(10)
             make.right.equalTo(view.safeAreaLayoutGuide).offset(-15)
         }
     }
@@ -104,8 +106,9 @@ extension CreateToDoViewController {
     func makeTimePicker() {
         timePicker.datePickerMode = .dateAndTime
         timePicker.snp.makeConstraints { make in
-            make.top.equalTo(setDateAndTimeButton.snp_bottomMargin).offset(20)
-            make.height.equalTo(50)
+            make.size.equalTo(CGSize(width: 250, height: 30))
+            make.top.equalTo(setDateAndTimeButton.snp_bottomMargin).offset(10)
+            make.height.equalTo(60)
         }
     }
     

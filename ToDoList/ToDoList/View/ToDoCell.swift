@@ -10,6 +10,7 @@ class ToDoCell: UITableViewCell {
     var toDoTitleLabel = UILabel()
     var toDoTimeLabel = UILabel()
     var doneButton = UIButton()
+    let size:CGFloat = 30.0
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -29,18 +30,30 @@ class ToDoCell: UITableViewCell {
     }
     
     private func drawDesign() {
+        contentView.backgroundColor = .systemFill
         addSubview(toDoTitleLabel)
         addSubview(toDoTimeLabel)
         contentView.addSubview(doneButton)
+        doneButton.bounds = CGRect(x: 0, y: 0, width: size, height: size)
+        doneButton.layer.cornerRadius = size / 2
+        doneButton.layer.borderWidth = 3.0
+        doneButton.layer.backgroundColor = UIColor.clear.cgColor
+        doneButton.layer.borderColor = UIColor.systemBlue.cgColor
+        contentView.layer.cornerRadius = 15
+        contentView.clipsToBounds = true
+        
     }
+    override func layoutSubviews() {
+          super.layoutSubviews()
+          let bottomSpace: CGFloat = 10.0
+          self.contentView.frame = self.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: bottomSpace, right: 0))
+     }
     
     private func makeDoneButton() {
-        doneButton.setTitle(buttonsTitle.doneButton, for: .normal)
-        doneButton.setTitleColor(UIColor.systemBlue, for: .normal)
-        doneButton.titleLabel?.font = .systemFont(ofSize: 14)
         doneButton.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 30, height: 30))
             make.top.equalToSuperview().offset(20)
-            make.left.equalToSuperview()
+            make.left.equalToSuperview().offset(5)
         }
     }
     
@@ -50,8 +63,8 @@ class ToDoCell: UITableViewCell {
         toDoTitleLabel.textColor = .systemTeal
         toDoTitleLabel.font = .boldSystemFont(ofSize: 24)
         toDoTitleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.left.equalTo(doneButton.snp_rightMargin).offset(10)
+            make.top.equalTo(doneButton).offset(-30)
+            make.left.equalTo(doneButton.snp_rightMargin).offset(20)
             make.trailing.equalToSuperview().offset(5)
             make.height.equalTo(60)
         }

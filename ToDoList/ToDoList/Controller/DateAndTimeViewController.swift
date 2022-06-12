@@ -58,7 +58,7 @@ class DateAndTimeViewController : UIViewController, FSCalendarDelegate {
         doneButton.layer.cornerRadius = 16
         doneButton.clipsToBounds = true
         doneButton.snp.makeConstraints { make in
-            make.height.equalTo(cancelButton)
+            make.height.equalTo(24)
             make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
             make.right.equalTo(view.safeAreaLayoutGuide).offset(-10)
             make.top.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-50)
