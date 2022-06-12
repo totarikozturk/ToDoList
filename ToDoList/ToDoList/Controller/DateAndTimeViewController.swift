@@ -9,8 +9,11 @@ import FSCalendar
 
 class DateAndTimeViewController : UIViewController, FSCalendarDelegate {
     
-    private let cancelButton = UIButton()
-    private let doneButton = UIButton()
+    let cancelButton = UIButton()
+    let setDateAndTimeButton = UIButton()
+    let dateLabel = UILabel()
+    let timeLabel = UILabel()
+    let timeLabelTitle = UILabel()
     var calendar = FSCalendar()
     var toDoDateAndTimeResult : String = ""
     var timePicker = UIDatePicker()
@@ -22,12 +25,20 @@ class DateAndTimeViewController : UIViewController, FSCalendarDelegate {
     
     private func configureView() {
         view.addSubview(cancelButton)
-        view.addSubview(doneButton)
+        view.addSubview(setDateAndTimeButton)
         view.addSubview(calendar)
         view.addSubview(timePicker)
+        view.addSubview(dateLabel)
+        view.addSubview(timeLabel)
+        view.addSubview(timeLabelTitle)
         view.backgroundColor = .white
+        dateLabel.backgroundColor = .systemFill
+        timeLabel.backgroundColor = .systemFill
         makeCancelButton()
         makeDoneButton()
+        makeDateLabel()
+        makeTimeLabel()
+        makeTimeLabelTitle()
         makeCalendar()
         makeTimePicker()
         cancelButton.addTarget(self, action: #selector(backTodoList), for: .touchUpInside)
@@ -49,36 +60,53 @@ class DateAndTimeViewController : UIViewController, FSCalendarDelegate {
         }
     }
     
-    private func makeDoneButton() {
-        doneButton.setTitle("Set Date & Time", for: .normal)
-        doneButton.setTitleColor(UIColor.purple, for: .normal)
-        doneButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
-        doneButton.layer.masksToBounds = true
-        doneButton.layer.borderWidth = 1
-        doneButton.layer.cornerRadius = 16
-        doneButton.clipsToBounds = true
-        doneButton.snp.makeConstraints { make in
-            make.height.equalTo(24)
-            make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
-            make.right.equalTo(view.safeAreaLayoutGuide).offset(-10)
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-50)
-        }
-    }
-    
-    private func makeCalendar() {
+    func makeCalendar() {
         calendar.delegate = self
         calendar.frame = CGRect(x: 0, y: 80 , width: view.frame.size.width, height: view.frame.size.width)
     }
     
-    private func makeTimePicker() {
+    func makeTimeLabelTitle() {
+        timeLabelTitle.text = "Set Time"
+        timeLabelTitle.textColor = .purple
+        timeLabelTitle.font = .boldSystemFont(ofSize: 34)
+        timeLabelTitle.snp.makeConstraints { make in
+            make.top.equalTo(calendar.snp.bottomMargin).offset(20)
+            make.centerX.equalTo(view.snp.centerX)
+        }
+    }
+    
+    func makeTimePicker() {
         timePicker.datePickerMode = .time
-        timePicker.frame = .init(x: 20, y: 100, width: timePicker.bounds.size.width, height: timePicker.bounds.size.height)
         timePicker.snp.makeConstraints { make in
-            make.top.equalTo(calendar.snp_bottomMargin).offset(20)
-            make.left.equalTo(view.safeAreaLayoutGuide).offset(150)
+            make.top.equalTo(timeLabelTitle.snp.bottomMargin).offset(10)
+            make.centerX.equalTo(view.snp.centerX)
             make.height.equalTo(50)
         }
     }
+    
+    func makeDateLabel() {
+        dateLabel.layer.cornerRadius = 15
+        dateLabel.clipsToBounds = true
+        dateLabel.snp.makeConstraints { make in
+            make.top.equalTo(timePicker.snp.bottom).offset(10)
+            make.left.equalTo(view).offset(10)
+            make.right.equalTo(view).offset(-10)
+            make.height.equalTo(40)
+        }
+    }
+    
+    func makeTimeLabel() {
+        timeLabel.layer.cornerRadius = 15
+        timeLabel.clipsToBounds = true
+        timeLabel.snp.makeConstraints { make in
+            make.top.equalTo(dateLabel.snp.bottom).offset(10)
+            make.left.equalTo(view).offset(10)
+            make.right.equalTo(view).offset(-10)
+            make.height.equalTo(40)
+        }
+    }
+    
+    
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let formatter = DateFormatter()
@@ -86,7 +114,28 @@ class DateAndTimeViewController : UIViewController, FSCalendarDelegate {
         let string = formatter.string(from: date)
         // MARK: todoDateAndTimeResults
         toDoDateAndTimeResult = string
+        dateLabel.text = string
+        let formatterr = DateFormatter()
+        formatterr.timeStyle = .medium
+        let dateTimeString = formatterr.string(from: timePicker.date)
+        timeLabel.text = dateTimeString
         print(string)
+    }
+    
+    func makeDoneButton() {
+        setDateAndTimeButton.setTitle("Set Date & Time", for: .normal)
+        setDateAndTimeButton.setTitleColor(UIColor.purple, for: .normal)
+        setDateAndTimeButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        setDateAndTimeButton.layer.masksToBounds = true
+        setDateAndTimeButton.layer.borderWidth = 1
+        setDateAndTimeButton.layer.cornerRadius = 16
+        setDateAndTimeButton.clipsToBounds = true
+        setDateAndTimeButton.snp.makeConstraints { make in
+            make.left.equalTo(view.safeAreaLayoutGuide).offset(10)
+            make.right.equalTo(view.safeAreaLayoutGuide).offset(-10)
+            make.top.equalTo(view.snp.bottom).offset(-60)
+            make.height.equalTo(timeLabel)
+        }
     }
 }
 

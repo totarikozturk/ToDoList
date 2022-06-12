@@ -22,7 +22,7 @@ extension CreateToDoViewController {
     
     func drawDesign() {
         view.addSubview(cancelButton)
-        view.addSubview(doneButton)
+        view.addSubview(createReminderButton)
         view.addSubview(reminderLabel)
         view.addSubview(textView)
         view.addSubview(DateAndTimeLabel)
@@ -31,7 +31,7 @@ extension CreateToDoViewController {
         view.backgroundColor = .white
         textView.backgroundColor = .systemFill
         cancelButton.addTarget(self, action: #selector(backTodoList), for: .touchUpInside)
-        doneButton.addTarget(self, action: #selector(createFinish), for: .touchUpInside)
+        createReminderButton.addTarget(self, action: #selector(createFinish), for: .touchUpInside)
     }
     
     func makeCancelButton() {
@@ -47,14 +47,14 @@ extension CreateToDoViewController {
     }
     
     func makeDoneButton() {
-        doneButton.setTitle(buttonsTitle.createButton, for: .normal)
-        doneButton.setTitleColor(UIColor.purple, for: .normal)
-        doneButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
-        doneButton.layer.masksToBounds = true
-        doneButton.layer.borderWidth = 1
-        doneButton.layer.cornerRadius = 16
-        doneButton.clipsToBounds = true
-        doneButton.snp.makeConstraints { make in
+        createReminderButton.setTitle(buttonsTitle.createButton, for: .normal)
+        createReminderButton.setTitleColor(UIColor.purple, for: .normal)
+        createReminderButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        createReminderButton.layer.masksToBounds = true
+        createReminderButton.layer.borderWidth = 1
+        createReminderButton.layer.cornerRadius = 16
+        createReminderButton.clipsToBounds = true
+        createReminderButton.snp.makeConstraints { make in
             make.height.equalTo(reminderLabel)
             make.left.equalTo(view).offset(10)
             make.right.equalTo(view).offset(-10)
@@ -106,9 +106,8 @@ extension CreateToDoViewController {
     func makeTimePicker() {
         timePicker.datePickerMode = .dateAndTime
         timePicker.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 250, height: 30))
+            make.size.equalTo(CGSize(width: 250, height: 50))
             make.top.equalTo(setDateAndTimeButton.snp_bottomMargin).offset(10)
-            make.height.equalTo(60)
         }
     }
     

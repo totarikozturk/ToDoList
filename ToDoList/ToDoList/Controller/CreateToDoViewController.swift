@@ -9,7 +9,7 @@ import SnapKit
 class CreateToDoViewController : UIViewController {
     
     let cancelButton = UIButton()
-    let doneButton = UIButton()
+    let createReminderButton = UIButton()
     let reminderLabel = UILabel()
     let textView = UITextView()
     let DateAndTimeLabel = UILabel()
