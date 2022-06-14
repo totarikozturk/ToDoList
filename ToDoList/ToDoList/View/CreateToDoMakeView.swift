@@ -60,6 +60,8 @@ extension CreateToDoViewController {
     func makeTextView() {
         textView.layer.cornerRadius = 15
         textView.clipsToBounds = true
+        textView.textAlignment = .center
+        textView.font = .systemFont(ofSize: 24)
         textView.snp.makeConstraints { make in
             make.top.equalTo(reminderLabel.snp.bottom).offset(10)
             make.left.equalTo(view).offset(10)
@@ -81,8 +83,8 @@ extension CreateToDoViewController {
     func makeTimePicker() {
         timePicker.datePickerMode = .dateAndTime
         timePicker.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 250, height: 50))
             make.top.equalTo(DateAndTimeLabel.snp_bottomMargin).offset(10)
+            make.centerX.equalTo(textView.snp.centerX)
         }
     }
     

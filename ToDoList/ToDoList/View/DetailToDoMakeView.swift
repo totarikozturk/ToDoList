@@ -59,6 +59,7 @@ extension DetailToDoViewController {
         detailNotesLabel.font = .systemFont(ofSize: 24)
         detailNotesLabel.layer.cornerRadius = 15
         detailNotesLabel.clipsToBounds = true
+        detailNotesLabel.textAlignment = .center
         detailNotesLabel.snp.makeConstraints { make in
             make.top.equalTo(notesLabel.snp_bottomMargin).offset(20)
             make.left.equalTo(view).offset(10)
@@ -81,6 +82,7 @@ extension DetailToDoViewController {
         detailDateAndTimeLabel.font = .systemFont(ofSize: 24)
         detailDateAndTimeLabel.layer.cornerRadius = 15
         detailDateAndTimeLabel.clipsToBounds = true
+        detailDateAndTimeLabel.textAlignment = .center
         detailDateAndTimeLabel.snp.makeConstraints { make in
             make.top.equalTo(dateAndTimelabel.snp_bottomMargin).offset(20)
             make.left.equalTo(view).offset(10)
@@ -96,7 +98,7 @@ extension DetailToDoViewController {
         doneButton.layer.borderWidth = 1
         doneButton.layer.cornerRadius = 16
         doneButton.snp.makeConstraints { make in
-            make.height.equalTo(cancelButton)
+            make.height.equalTo(notesLabel)
             make.left.equalTo(view).offset(10)
             make.right.equalTo(view).offset(-10)
             make.top.equalTo(view.snp.bottom).offset(-50)
