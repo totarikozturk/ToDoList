@@ -27,13 +27,16 @@ extension CreateToDoViewController {
         view.addSubview(timePicker)
         view.addSubview(createReminderButton)
         
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: ViewColors.backgroundColor)
         textView.backgroundColor = .systemFill
         cancelButton.addTarget(self, action: #selector(backTodoList), for: .touchUpInside)
         createReminderButton.addTarget(self, action: #selector(createFinish), for: .touchUpInside)
     }
     
     func makeCancelButton() {
+        let config = UIImage.SymbolConfiguration(pointSize: 25.0, weight: .medium, scale: .medium)
+        let image = UIImage(systemName: "chevron.left", withConfiguration: config)
+        cancelButton.setImage(image, for: .normal)
         cancelButton.setTitle(buttonsTitle.cancelButton, for: .normal)
         cancelButton.setTitleColor(UIColor.systemBlue, for: .normal)
         cancelButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
@@ -47,7 +50,7 @@ extension CreateToDoViewController {
     
     func makeReminderLabel() {
         reminderLabel.text = labelsTitle.createReminderLabel
-        reminderLabel.textColor = .purple
+        reminderLabel.textColor = UIColor(named: ViewColors.titleColor)
         reminderLabel.font = .boldSystemFont(ofSize: 24)
         reminderLabel.snp.makeConstraints { make in
             make.top.equalTo(cancelButton.snp.bottom).offset(10)
@@ -62,6 +65,7 @@ extension CreateToDoViewController {
         textView.clipsToBounds = true
         textView.textAlignment = .center
         textView.font = .systemFont(ofSize: 24)
+        textView.backgroundColor = UIColor(named: ViewColors.textBackgroundColor)
         textView.snp.makeConstraints { make in
             make.top.equalTo(reminderLabel.snp.bottom).offset(10)
             make.left.equalTo(view).offset(10)
@@ -72,7 +76,7 @@ extension CreateToDoViewController {
     
     func makeDateAndTimeLabel() {
         DateAndTimeLabel.text = labelsTitle.setDateAndTimeLabel
-        DateAndTimeLabel.textColor = .purple
+        DateAndTimeLabel.textColor = UIColor(named: ViewColors.titleColor)
         DateAndTimeLabel.font = .boldSystemFont(ofSize: 20)
         DateAndTimeLabel.snp.makeConstraints { make in
             make.top.equalTo(textView.snp.bottom).offset(10)
@@ -81,6 +85,8 @@ extension CreateToDoViewController {
     }
     
     func makeTimePicker() {
+        timePicker.tintColor = UIColor(named: ViewColors.titleColor)
+        timePicker.layer.cornerRadius = 15
         timePicker.datePickerMode = .dateAndTime
         timePicker.snp.makeConstraints { make in
             make.top.equalTo(DateAndTimeLabel.snp_bottomMargin).offset(10)
@@ -90,10 +96,12 @@ extension CreateToDoViewController {
     
     func makeDoneButton() {
         createReminderButton.setTitle(buttonsTitle.createButton, for: .normal)
-        createReminderButton.setTitleColor(UIColor.purple, for: .normal)
+        let color = UIColor(named: ViewColors.titleColor)
+        createReminderButton.setTitleColor(color, for: .normal)
         createReminderButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
         createReminderButton.layer.masksToBounds = true
         createReminderButton.layer.borderWidth = 1
+        createReminderButton.layer.borderColor =  UIColor(named: ViewColors.borderColor)?.cgColor
         createReminderButton.layer.cornerRadius = 16
         createReminderButton.clipsToBounds = true
         createReminderButton.snp.makeConstraints { make in

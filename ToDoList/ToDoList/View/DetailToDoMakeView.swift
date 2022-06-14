@@ -26,14 +26,17 @@ extension DetailToDoViewController {
         view.addSubview(dateAndTimelabel)
         view.addSubview(detailDateAndTimeLabel)
         view.addSubview(doneButton)
-        view.backgroundColor = .white
-        detailNotesLabel.backgroundColor = .systemFill
-        detailDateAndTimeLabel.backgroundColor = .systemFill
+        view.backgroundColor = UIColor(named: ViewColors.backgroundColor)
+        detailNotesLabel.backgroundColor = UIColor(named: ViewColors.textBackgroundColor)
+        detailDateAndTimeLabel.backgroundColor = UIColor(named: ViewColors.textBackgroundColor)
         cancelButton.addTarget(self, action: #selector(backTodoList), for: .touchUpInside)
         doneButton.addTarget(self, action: #selector(createFinish), for: .touchUpInside)
     }
     
     func makeCancelButton() {
+        let config = UIImage.SymbolConfiguration(pointSize: 25.0, weight: .medium, scale: .medium)
+        let image = UIImage(systemName: "chevron.left", withConfiguration: config)
+        cancelButton.setImage(image, for: .normal)
         cancelButton.setTitle(buttonsTitle.cancelButton, for: .normal)
         cancelButton.setTitleColor(UIColor.systemBlue, for: .normal)
         cancelButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
@@ -47,7 +50,7 @@ extension DetailToDoViewController {
     
     func makeNotesLabel() {
         notesLabel.text = labelsTitle.notesLabel
-        notesLabel.textColor = .purple
+        notesLabel.textColor = UIColor(named: ViewColors.titleColor)
         notesLabel.font = .boldSystemFont(ofSize: 24)
         notesLabel.snp.makeConstraints { make in
             make.top.equalTo(cancelButton.snp_bottomMargin).offset(20)
@@ -70,7 +73,7 @@ extension DetailToDoViewController {
     
     func makeDateAndTimeLabel() {
         dateAndTimelabel.text = labelsTitle.dateAndTimeLabel
-        dateAndTimelabel.textColor = .purple
+        dateAndTimelabel.textColor = UIColor(named: ViewColors.titleColor)
         dateAndTimelabel.font = .boldSystemFont(ofSize: 24)
         dateAndTimelabel.snp.makeConstraints { make in
             make.top.equalTo(detailNotesLabel.snp_bottomMargin).offset(20)
@@ -93,9 +96,11 @@ extension DetailToDoViewController {
     
     func makeDoneButton() {
         doneButton.setTitle(buttonsTitle.doneButton, for: .normal)
-        doneButton.setTitleColor(UIColor.purple, for: .normal)
+        let color = UIColor(named: ViewColors.titleColor)
+        doneButton.setTitleColor(color, for: .normal)
         doneButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
         doneButton.layer.borderWidth = 1
+        doneButton.layer.borderColor =  UIColor(named: ViewColors.borderColor)?.cgColor
         doneButton.layer.cornerRadius = 16
         doneButton.snp.makeConstraints { make in
             make.height.equalTo(notesLabel)

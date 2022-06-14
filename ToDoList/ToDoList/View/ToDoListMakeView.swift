@@ -21,13 +21,13 @@ extension ToDoListViewController {
         view.addSubview(titleLabel)
         view.addSubview(tableView)
         view.addSubview(toDoCreateButton)
-        view.backgroundColor = .white
-        tableView.backgroundColor = .clear
+        view.backgroundColor = UIColor(named: ViewColors.backgroundColor)
+        tableView.backgroundColor = UIColor(named: ViewColors.backgroundColor)
     }
     
     func makeTitleLabel() {
         titleLabel.text = labelsTitle.titleLabel
-        titleLabel.textColor = .purple
+        titleLabel.textColor = UIColor(named: ViewColors.titleColor)
         titleLabel.font = .boldSystemFont(ofSize: 34)
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
@@ -53,9 +53,11 @@ extension ToDoListViewController {
     
     func makeToDoCreateButton() {
         toDoCreateButton.setTitle(buttonsTitle.createReminderButton, for: .normal)
-        toDoCreateButton.setTitleColor(UIColor.purple, for: .normal)
+        let color = UIColor(named: ViewColors.titleColor)
+        toDoCreateButton.setTitleColor(color, for: .normal)
         toDoCreateButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
-        toDoCreateButton.layer.borderWidth = 1
+        toDoCreateButton.layer.borderWidth = 2
+        toDoCreateButton.layer.borderColor = UIColor(named: ViewColors.borderColor)?.cgColor
         toDoCreateButton.layer.cornerRadius = 12
         toDoCreateButton.snp.makeConstraints { make in
             make.height.equalTo(titleLabel)

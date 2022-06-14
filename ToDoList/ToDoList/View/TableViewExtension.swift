@@ -19,6 +19,9 @@ extension ToDoListViewController: UITableViewDelegate,UITableViewDataSource {
         cell.toDoTitleLabel.text = ToDo.Title
         cell.doneButton.tag = indexPath.row
         cell.doneButton.addTarget(self, action: #selector(removeCell), for: .touchUpInside)
+        let view = UIView()
+        view.backgroundColor = UIColor(named: ViewColors.backgroundColor)
+        cell.selectedBackgroundView = view
         return cell
     }
     

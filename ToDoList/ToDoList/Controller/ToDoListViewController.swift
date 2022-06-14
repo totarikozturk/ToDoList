@@ -32,7 +32,7 @@ class ToDoListViewController : UIViewController {
     }
     
     @objc func openCreateTodoView() {
-        let navigation = UINavigationController(rootViewController: CreateToDoViewController())
+        let navigation = CreateToDoViewController()
         navigation.modalPresentationStyle = .fullScreen
         self.present(navigation,animated: true,completion: nil)
     }

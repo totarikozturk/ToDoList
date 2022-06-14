@@ -3,7 +3,7 @@
 //
 //  Created by TarıkOzturk on 4.06.2022.
 //
-import Foundation
+import UIKit
 
 struct globalVar {
     static let createToDoVC = CreateToDoViewController()
@@ -30,7 +30,7 @@ struct Cells {
 }
 
 struct buttonsTitle {
-    static let cancelButton = "Cancel"
+    static let cancelButton = "Back"
     static let createButton = "Create"
     static let doneButton = "Done"
     static let createReminderButton = "+ Create Reminder"
@@ -42,4 +42,11 @@ struct labelsTitle {
     static let dateAndTimeLabel = "Date & Time"
     static let createReminderLabel = "Create Reminder"
     static let setDateAndTimeLabel = "Set Date & Time"
+}
+
+struct ViewColors {
+    static let backgroundColor = "BackgroundColor"
+    static let textBackgroundColor = "TextBackgroundColor"
+    static let borderColor = "TodoTitleColor"
+    static let titleColor = "Textcolor"
 }

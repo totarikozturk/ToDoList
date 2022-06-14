@@ -30,7 +30,8 @@ class ToDoCell: UITableViewCell {
     }
     
     private func drawDesign() {
-        contentView.backgroundColor = .systemFill
+        contentView.backgroundColor = UIColor(named: ViewColors.textBackgroundColor)
+        backgroundColor = UIColor(named: ViewColors.backgroundColor)
         addSubview(toDoTitleLabel)
         addSubview(toDoTimeLabel)
         contentView.addSubview(doneButton)
@@ -47,7 +48,7 @@ class ToDoCell: UITableViewCell {
     private func makeTitleLabel() {
         toDoTitleLabel.numberOfLines = 0
         toDoTitleLabel.adjustsFontSizeToFitWidth = true
-        toDoTitleLabel.textColor = .systemTeal
+        toDoTitleLabel.textColor = UIColor(named: ViewColors.borderColor)
         toDoTitleLabel.font = .boldSystemFont(ofSize: 24)
         toDoTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(doneButton).offset(-30)
@@ -60,7 +61,7 @@ class ToDoCell: UITableViewCell {
     private func makeTimeLabel() {
         toDoTimeLabel.numberOfLines = 0
         toDoTimeLabel.adjustsFontSizeToFitWidth = true
-        toDoTimeLabel.textColor = .darkGray
+        toDoTimeLabel.textColor = UIColor(named: ViewColors.borderColor)
         toDoTimeLabel.font = .boldSystemFont(ofSize: 20)
         toDoTimeLabel.snp.makeConstraints { make in
             make.top.equalTo(toDoTitleLabel).offset(30)
