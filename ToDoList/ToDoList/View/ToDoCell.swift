@@ -48,7 +48,7 @@ class ToDoCell: UITableViewCell {
     private func makeTitleLabel() {
         toDoTitleLabel.numberOfLines = 0
         toDoTitleLabel.adjustsFontSizeToFitWidth = true
-        toDoTitleLabel.textColor = UIColor(named: ViewColors.borderColor)
+        toDoTitleLabel.textColor = UIColor(named: ViewColors.dateColor)
         toDoTitleLabel.font = .boldSystemFont(ofSize: 24)
         toDoTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(doneButton).offset(-30)
@@ -61,7 +61,7 @@ class ToDoCell: UITableViewCell {
     private func makeTimeLabel() {
         toDoTimeLabel.numberOfLines = 0
         toDoTimeLabel.adjustsFontSizeToFitWidth = true
-        toDoTimeLabel.textColor = UIColor(named: ViewColors.borderColor)
+        toDoTimeLabel.textColor = UIColor(named: ViewColors.dateColor)
         toDoTimeLabel.font = .boldSystemFont(ofSize: 20)
         toDoTimeLabel.snp.makeConstraints { make in
             make.top.equalTo(toDoTitleLabel).offset(30)
@@ -73,10 +73,13 @@ class ToDoCell: UITableViewCell {
     
     private func makeDoneButton() {
         doneButton.bounds = CGRect(x: 0, y: 0, width: size, height: size)
+        doneButton.setTitle("!", for: .normal)
+        let color = UIColor(named: ViewColors.titleColor)
+        doneButton.setTitleColor(color, for: .normal)
         doneButton.layer.cornerRadius = size / 2
         doneButton.layer.borderWidth = 3.0
         doneButton.layer.backgroundColor = UIColor.clear.cgColor
-        doneButton.layer.borderColor = UIColor.systemBlue.cgColor
+        doneButton.layer.borderColor = UIColor(named: ViewColors.borderColor)?.cgColor
         doneButton.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 30, height: 30))
             make.top.equalToSuperview().offset(20)

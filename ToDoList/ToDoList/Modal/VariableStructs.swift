@@ -49,4 +49,5 @@ struct ViewColors {
     static let textBackgroundColor = "TextBackgroundColor"
     static let borderColor = "TodoTitleColor"
     static let titleColor = "Textcolor"
+    static let dateColor = "TodoDateColor"
 }
