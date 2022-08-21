@@ -76,20 +76,48 @@
 			children = (
 				D0E80869284A807300E16E17 /* App */,
 				D0E8086D284A816A00E16E17 /* Controller */,
-				D0C68425284E9E5B00599FB8 /* Modal */,
+				D0C68425284E9E5B00599FB8 /* Utilities */,
 				D0E8086C284A815900E16E17 /* Resources */,
-				D0E8086F284A821200E16E17 /* View */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
 		};
-		D0C68425284E9E5B00599FB8 /* Modal */ = {
+		D0C68425284E9E5B00599FB8 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				D0C68422284E9DCD00599FB8 /* CodableExtension.swift */,
 				D0C68420284E9DAD00599FB8 /* VariableStructs.swift */,
 			);
-			path = Modal;
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D0C8F37D28B27E3C0009CA01 /* ToDoList */ = {
+			isa = PBXGroup;
+			children = (
+				D009DD4128521D3D001019BC /* TableViewExtension.swift */,
+				D0C6841E284E9D7800599FB8 /* ToDoCell.swift */,
+				D0B4F0492855298900F4A166 /* ToDoListMakeView.swift */,
+				D0E80867284A801000E16E17 /* ToDoListViewController.swift */,
+			);
+			path = ToDoList;
+			sourceTree = "<group>";
+		};
+		D0C8F37E28B27E5B0009CA01 /* CreateView */ = {
+			isa = PBXGroup;
+			children = (
+				D0B4F04D28552B2100F4A166 /* CreateToDoMakeView.swift */,
+				D0E80876284C021500E16E17 /* CreateToDoViewController.swift */,
+			);
+			path = CreateView;
+			sourceTree = "<group>";
+		};
+		D0C8F37F28B27E6B0009CA01 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				D0B4F04B28552A4200F4A166 /* DetailToDoMakeView.swift */,
+				D0E8087A284C0C2800E16E17 /* DetailToDoViewController.swift */,
+			);
+			path = DetailView;
 			sourceTree = "<group>";
 		};
 		D0E80869284A807300E16E17 /* App */ = {
@@ -114,23 +142,11 @@
 		D0E8086D284A816A00E16E17 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D0E80867284A801000E16E17 /* ToDoListViewController.swift */,
-				D0E8087A284C0C2800E16E17 /* DetailToDoViewController.swift */,
-				D0E80876284C021500E16E17 /* CreateToDoViewController.swift */,
+				D0C8F37E28B27E5B0009CA01 /* CreateView */,
+				D0C8F37F28B27E6B0009CA01 /* DetailView */,
+				D0C8F37D28B27E3C0009CA01 /* ToDoList */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		D0E8086F284A821200E16E17 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				D0C6841E284E9D7800599FB8 /* ToDoCell.swift */,
-				D009DD4128521D3D001019BC /* TableViewExtension.swift */,
-				D0B4F0492855298900F4A166 /* ToDoListMakeView.swift */,
-				D0B4F04B28552A4200F4A166 /* DetailToDoMakeView.swift */,
-				D0B4F04D28552B2100F4A166 /* CreateToDoMakeView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
